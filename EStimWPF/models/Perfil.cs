@@ -8,5 +8,16 @@ namespace EStimWPF.models
 {
     class Perfil
     {
+        private string id;
+        private string nombreUsuario;
+        private string contrasenya;
+        private Estado estado;
+
+    }
+    enum Estado
+    {
+        Desconectado,
+        Conectado,
+        Ausente
     }
 }
