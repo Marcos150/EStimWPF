@@ -11,7 +11,6 @@ namespace EStimWPF.models
         private string id;
         private string nombreUsuario;
         private string contrasenya;
-<<<<<<< HEAD
         private string descripcion;
         private Estado estado;
         private string region;
@@ -40,10 +39,6 @@ namespace EStimWPF.models
         public string ImagenB64 { get => imagenB64; set => imagenB64 = value; }
         internal Estado Estado { get => estado; set => estado = value; }
         internal List<Juego> JuegosAdquiridos { get => juegosAdquiridos; set => juegosAdquiridos = value; }
-=======
-        private Estado estado;
-
->>>>>>> f2c99b0050d509be5520a6d7514413890e4dcc38
     }
     enum Estado
     {
