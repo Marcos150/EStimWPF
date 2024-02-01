@@ -8,7 +8,8 @@
         Title="MainWindow" Height="450" Width="800"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="360,202,0,0" VerticalAlignment="Top"/>
+        <Button Content="Abrir ventanas" HorizontalAlignment="Left" Margin="360,202,0,0" VerticalAlignment="Top" Click="AbrirVentanas"/>
+        <Button Content="Cerrar ventanas" Margin="360,239,0,0" Click="CerrarVentanas" VerticalAlignment="Top"/>
 
     </Grid>
 </ui:UiWindow>

@@ -14,7 +14,7 @@ namespace EStimWPF.models
         private DateTime fechaLanzamiento;
         private string desarrollador;
         private string editor;
-        private List<String> generos;
+        private List<string> generos;
         private string portadaB64;
 
         public Juego(string id, string nombre, string descripcion, DateTime fechaLanzamiento, string desarrollador, string editor, List<string> generos, string portadaB64)
