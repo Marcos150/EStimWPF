@@ -14,7 +14,8 @@
         <Image x:Name="banner" HorizontalAlignment="Left" Height="112" Margin="530,86,0,0" VerticalAlignment="Top" Width="250"/>
         <Label x:Name="titulo" Content="Label" HorizontalAlignment="Left" Margin="20,30,0,0" VerticalAlignment="Top" Width="380"/>
         <Label x:Name="descripcion" Content="Label" HorizontalAlignment="Left" Margin="530,248,0,0" VerticalAlignment="Top" Width="249" Height="101"/>
-        <Label x:Name="fechaLanzamiento" Content="Label" HorizontalAlignment="Left" Margin="530,381,0,0" VerticalAlignment="Top" Width="249" Height="26"/>
+        <Label x:Name="fechaLanzamiento" Content="Label" HorizontalAlignment="Left" Margin="530,373,0,0" VerticalAlignment="Top" Width="249"/>
+        <Label x:Name="desarrolladora" Content="Label" HorizontalAlignment="Left" Margin="530,413,0,0" VerticalAlignment="Top" Width="249"/>
 
     </Grid>
 </ui:UiPage>
