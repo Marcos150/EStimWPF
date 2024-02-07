@@ -11,11 +11,12 @@
 
     <Grid>
         <Image x:Name="portada" HorizontalAlignment="Left" Height="228" Margin="20,71,0,0" VerticalAlignment="Top" Width="447"/>
-        <Image x:Name="banner" HorizontalAlignment="Left" Height="112" Margin="530,86,0,0" VerticalAlignment="Top" Width="250"/>
+        <Image x:Name="banner" HorizontalAlignment="Left" Height="112" Margin="530,71,0,0" VerticalAlignment="Top" Width="250"/>
         <Label x:Name="titulo" Content="Label" HorizontalAlignment="Left" Margin="20,30,0,0" VerticalAlignment="Top" Width="380"/>
-        <Label x:Name="descripcion" Content="Label" HorizontalAlignment="Left" Margin="530,248,0,0" VerticalAlignment="Top" Width="249" Height="101"/>
-        <Label x:Name="fechaLanzamiento" Content="Label" HorizontalAlignment="Left" Margin="530,373,0,0" VerticalAlignment="Top" Width="249"/>
-        <Label x:Name="desarrolladora" Content="Label" HorizontalAlignment="Left" Margin="530,413,0,0" VerticalAlignment="Top" Width="249"/>
+        <Label x:Name="descripcion" Content="Label" HorizontalAlignment="Left" Margin="530,212,0,0" VerticalAlignment="Top" Width="249" Height="101"/>
+        <Label x:Name="fechaLanzamiento" Content="Label" HorizontalAlignment="Left" Margin="530,330,0,0" VerticalAlignment="Top" Width="249"/>
+        <Label x:Name="desarrolladora" Content="Label" HorizontalAlignment="Left" Margin="530,373,0,0" VerticalAlignment="Top" Width="249"/>
+        <Label x:Name="precio" Content="Label" HorizontalAlignment="Left" Margin="530,420,0,0" VerticalAlignment="Top" Width="249"/>
 
     </Grid>
 </ui:UiPage>
