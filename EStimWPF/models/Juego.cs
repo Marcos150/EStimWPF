@@ -5,17 +5,19 @@
         private string id;
         private string nombre;
         private string descripcion;
+        private double precio;
         private DateTime fechaLanzamiento;
         private string desarrollador;
         private string editor;
         private List<string> generos;
         private string portadaB64;
 
-        public Juego(string id, string nombre, string descripcion, DateTime fechaLanzamiento, string desarrollador, string editor, List<string> generos, string portadaB64)
+        public Juego(string id, string nombre, string descripcion, double precio, DateTime fechaLanzamiento, string desarrollador, string editor, List<string> generos, string portadaB64)
         {
             this.id = id;
             this.nombre = nombre;
             this.descripcion = descripcion;
+            this.precio = precio;
             this.fechaLanzamiento = fechaLanzamiento;
             this.desarrollador = desarrollador;
             this.editor = editor;
