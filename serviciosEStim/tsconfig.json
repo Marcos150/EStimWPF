@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+      "module": "NodeNext",
+      "esModuleInterop": true,
+      "lib": ["es2023"],
+      "target": "es2022",
+      "moduleResolution": "NodeNext",
+      "sourceMap": true,
+      "outDir": "dist",
+      "removeComments": true,
+      
+      /* Linting */
+      "strict": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "noFallthroughCasesInSwitch": true,
+  
+      /* MikroOrm */
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+    },
+    "include": ["src"]
+  }
+  
