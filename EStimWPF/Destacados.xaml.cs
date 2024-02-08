@@ -1,6 +1,8 @@
-﻿using System;
+﻿using EStimWPF.models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,6 +24,7 @@ namespace EStimWPF
         public Destacados()
         {
             InitializeComponent();
+            this.DataContext = new DestacadosViewModel("GTA 16", "Juegazo");
         }
     }
 }

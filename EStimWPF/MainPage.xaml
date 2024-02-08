@@ -7,7 +7,4 @@
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" x:Class="EStimWPF.MainPage"
         mc:Ignorable="d"
         Title="MainPage" Height="720" Width="1280">
-
-
-    <Grid/>
 </Window>
