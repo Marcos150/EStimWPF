@@ -26,10 +26,5 @@ namespace EStimWPF
             InitializeComponent();
             this.DataContext = new DestacadosViewModel("GTA 16", "Juegazo");
         }
-
-        private void prueba(object sender, EventArgs args)
-        {
-
-        }
     }
 }
