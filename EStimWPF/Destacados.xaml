@@ -7,15 +7,16 @@
         mc:Ignorable="d"
         Title="Destacados" Height="300" Width="750">
     <Grid>
-        <Image HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="472"/>
-        <Label Content="#NombreJuego" HorizontalAlignment="Left" Margin="584,37,0,0" VerticalAlignment="Top" Width="100"/>
-        <Label Content="#Información" HorizontalAlignment="Left" Margin="584,231,0,0" VerticalAlignment="Top" Width="100"/>
-        <Grid Margin="540,62,10,58">
-            <Image HorizontalAlignment="Left" Height="59" Margin="10,10,0,0" VerticalAlignment="Top" Width="81"/>
-            <Image HorizontalAlignment="Left" Height="59" Margin="100,10,0,0" VerticalAlignment="Top" Width="81"/>
-            <Image HorizontalAlignment="Left" Height="59" Margin="10,82,0,0" VerticalAlignment="Top" Width="81"/>
-            <Image HorizontalAlignment="Left" Height="59" Margin="100,82,0,0" VerticalAlignment="Top" Width="81"/>
-
+        <Image x:Name="imgPpal" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="472" Margin="0,-6,0,0"/>
+        <Label x:Name="nombreJuego" Content="{Binding NombreJuego}" HorizontalAlignment="Left" Margin="584,30,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="infoJuego" Content="{Binding InfoJuego}" HorizontalAlignment="Left" Margin="584,235,0,0" VerticalAlignment="Top" Width="100"/>
+        
+        <Grid Margin="540,55,10,65">
+            <Image x:Name="img1" HorizontalAlignment="Left" Height="59" Margin="10,10,0,0" VerticalAlignment="Top" Width="81"/>
+            <Image x:Name="img2" HorizontalAlignment="Left" Height="59" Margin="100,10,0,0" VerticalAlignment="Top" Width="81"/>
+            <Image x:Name="img3" HorizontalAlignment="Left" Height="59" Margin="10,82,0,0" VerticalAlignment="Top" Width="81"/>
+            <Image x:Name="img4" HorizontalAlignment="Left" Height="59" Margin="100,82,0,0" VerticalAlignment="Top" Width="81"/>
         </Grid>
+        
     </Grid>
 </Window>
