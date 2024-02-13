@@ -1,37 +1,43 @@
-﻿namespace EStimWPF.models
+﻿
+namespace EStimWPF.models 
 {
     class Juego
     {
-        private string id;
-        private string nombre;
-        private string descripcion;
+        private string _id;
+        private string _nombre;
+        private string _descripcion;
         private double precio;
-        private DateTime fechaLanzamiento;
-        private string desarrollador;
-        private string editor;
-        private List<string> generos;
-        private string portadaB64;
+        private DateTime _fechaLanzamiento;
+        private string _desarrollador;
+        private string _editor;
+        private List<string> _generos;
+        private string _portadaB64;
 
-        public Juego(string id, string nombre, string descripcion, double precio, DateTime fechaLanzamiento, string desarrollador, string editor, List<string> generos, string portadaB64)
+        public Juego() { }
+        /*public Juego(string _id, string _nombre, string _descripcion, double precio, DateTime _fechaLanzamiento, string _desarrollador, string _editor, List<string> _generos, string _portadaB64)
         {
-            this.id = id;
-            this.nombre = nombre;
-            this.descripcion = descripcion;
+            this._id = _id;
+            this._nombre = _nombre;
+            this._descripcion = _descripcion;
             this.precio = precio;
-            this.fechaLanzamiento = fechaLanzamiento;
-            this.desarrollador = desarrollador;
-            this.editor = editor;
-            this.generos = generos;
-            this.portadaB64 = portadaB64;
+            this._fechaLanzamiento = _fechaLanzamiento;
+            this._desarrollador = _desarrollador;
+            this._editor = _editor;
+            this._generos = _generos;
+            this._portadaB64 = _portadaB64;
         }
+        public Juego(string _nombre)
+        {
+            this._nombre = _nombre;
+        }*/
 
-        public string Id { get => id; set => id = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
-        public string Descripcion { get => descripcion; set => descripcion = value; }
-        public DateTime FechaLanzamiento { get => fechaLanzamiento; set => fechaLanzamiento = value; }
-        public string Desarrollador { get => desarrollador; set => desarrollador = value; }
-        public string Editor { get => editor; set => editor = value; }
-        public List<string> Generos { get => generos; set => generos = value; }
-        public string PortadaB64 { get => portadaB64; set => portadaB64 = value; }
+        public string id { get => _id; set => _id = value; }
+        public string nombre { get => _nombre; set => _nombre = value; }
+        public string descripcion { get => _descripcion; set => _descripcion = value; }
+        public DateTime fechaLanzamiento { get => _fechaLanzamiento; set => _fechaLanzamiento = value; }
+        public string desarrollador { get => _desarrollador; set => _desarrollador = value; }
+        public string editor { get => _editor; set => _editor = value; }
+        public List<string> generos { get => _generos; set => _generos = value; }
+        public string portadaB64 { get => _portadaB64; set => _portadaB64 = value; }
     }
 }

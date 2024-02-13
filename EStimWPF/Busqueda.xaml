@@ -15,13 +15,12 @@
                     <Border  BorderBrush="Black" BorderThickness="4">
                         <WrapPanel Background="Purple" >
                             <Image Source="/EStimWPF;component/testing/tekken8.jpg" Width="100" Height="100"/>
-                            <TextBlock Text="{Binding Nombre}" Margin="0,20,10,0"/>
-                            <TextBlock Text="{Binding Desarrollador}" Margin="0,20,10,0"/>
+                            <TextBlock Text="{Binding nombre}" Margin="0,20,10,0"/>
+                            <TextBlock Text="{Binding desarrollador}" Margin="0,20,10,0"/>
                         </WrapPanel>
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ui:Button Content="Button" Margin="550,332,0,0" VerticalAlignment="Top" Click="CambiarNombre"/>
     </Grid>
 </Page>

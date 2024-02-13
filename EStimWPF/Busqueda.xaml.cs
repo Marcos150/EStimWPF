@@ -1,5 +1,6 @@
 ﻿using EStimWPF.models;
 using System;
+using System.Net.Http;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -14,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
+using System.Text.Json;
 
 namespace EStimWPF
 {
@@ -23,20 +26,27 @@ namespace EStimWPF
     public partial class Busqueda : Page
     {
         ObservableCollection<Juego> juegos = new ObservableCollection<Juego>();
+        private const string URL = "http://localhost:8080/juegos";
         public Busqueda()
         {
             InitializeComponent();
-            for (int i = 0; i < 2; i++)
-            {
-                juegos.Add(new Juego("Juego" + i, "Desarrollador"));
-            }
             listaJuegos.ItemsSource = juegos;
+            Task.Run(() => GetJuegos(juegos));
         }
 
-        private void CambiarNombre(object sender, RoutedEventArgs e)
+        private async Task GetJuegos(ObservableCollection<Juego> listita)
         {
-            juegos[0].Nombre = "jueguito";
-            juegos.Add(new Juego("Juegaaaso", "dessa"));
+
+            using (HttpClient client = new HttpClient())
+            {
+                string json = await client.GetStringAsync(URL);
+                List<Juego> obtenidos = JsonSerializer.Deserialize<List<Juego>>(json);
+                foreach(Juego juego in obtenidos)
+                {
+                    Debug.WriteLine(juego.nombre);
+                    Application.Current.Dispatcher.Invoke(() => listita.Add(juego));
+                }
+            }
         }
     }
 }
