@@ -17,9 +17,12 @@ namespace EStimWPF
     /// </summary>
     public partial class MainWindow : UiWindow
     {
+        public static Frame Frame { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            Frame = mainFrame;
+            mainFrame.Navigate(new Busqueda());
         }
 
         private void AbrirVentanas(object sender, RoutedEventArgs e)

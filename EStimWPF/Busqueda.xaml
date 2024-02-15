@@ -9,14 +9,15 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Busqueda">
     <Grid>
-        <ListView Name="listaJuegos">
+        <ListView Name="listaJuegos" SelectionChanged="GoToGamePage" >
             <ListView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate >
                     <Border  BorderBrush="Black" BorderThickness="4">
-                        <WrapPanel Background="Purple" >
-                            <Image Source="/EStimWPF;component/testing/tekken8.jpg" Width="100" Height="100"/>
+                        <WrapPanel Background="Purple">
+                            <Image Source="{Binding portadaSource}" Width="50" Height="50"/>
                             <TextBlock Text="{Binding nombre}" Margin="0,20,10,0"/>
                             <TextBlock Text="{Binding desarrollador}" Margin="0,20,10,0"/>
+                            <TextBlock Text="{Binding editor}" Margin="0,20,10,0"/>
                         </WrapPanel>
                     </Border>
                 </DataTemplate>
