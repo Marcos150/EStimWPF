@@ -37,6 +37,6 @@
         public string Desarrollador { get => desarrollador; set => desarrollador = value; }
         public string Editor { get => editor; set => editor = value; }
         public List<string> Generos { get => generos; set => generos = value; }
-        public string PortadaB64 { get => portadaB64; set => portadaB64 = value; }   
+        public string PortadaB64 { get => portadaB64; set => portadaB64 = value; }
     }
 }
