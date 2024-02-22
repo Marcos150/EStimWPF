@@ -10,8 +10,7 @@ namespace EStimWPF
     {
         public Destacados()
         {
-            InitializeComponent();
-            this.DataContext = new DestacadosViewModel("GTA 16", "Juegazo", "img1", "img2", "img3", "img4", "imgPpal");
+            this.DataContext = new DestacadosViewModel("GTA 16", "Juegazo!", "img1", "img2", "img3", "img4", "imgPpal");
         }
     }
 }

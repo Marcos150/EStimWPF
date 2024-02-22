@@ -5,7 +5,6 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EStimWPF.models
 {
@@ -27,7 +26,7 @@ namespace EStimWPF.models
 
         public string NombreJuego { get => nombreJuego; set => nombreJuego = value; }
         public string InfoJuego { get => infoJuego; set => infoJuego = value; }
-        public string Img { get => img; set => img = value; }
+        public string Img1 { get => img1; set => img1 = value; }
         public string Img2 { get => img2; set => img2 = value; }
         public string Img3 { get => img3; set => img3 = value; }
         public string Img4 { get => img4; set => img4 = value; }
