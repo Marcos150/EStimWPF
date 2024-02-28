@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
-    <Grid>
+    <Grid Background="#0c758e">
         <Frame x:Name="mainFrame"></Frame>
     </Grid>
 </ui:UiWindow>

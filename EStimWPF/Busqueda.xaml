@@ -9,15 +9,86 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Busqueda">
     <Grid>
-        <ListView Name="listaJuegos" SelectionChanged="GoToGamePage" >
+        <ListView Name="listaJuegos" SelectionChanged="GoToGamePage">
             <ListView.ItemTemplate>
-                <DataTemplate >
-                    <Border  BorderBrush="Black" BorderThickness="4">
-                        <WrapPanel Background="Purple">
-                            <Image Source="{Binding portadaSource}" Width="50" Height="50"/>
-                            <TextBlock Text="{Binding nombre}" Margin="0,20,10,0"/>
-                            <TextBlock Text="{Binding desarrollador}" Margin="0,20,10,0"/>
-                            <TextBlock Text="{Binding editor}" Margin="0,20,10,0"/>
+                <DataTemplate>
+                    <Border  BorderBrush="#01323e" BorderThickness="2" Name="border" Width="750">
+                        <Border.Effect>
+                            <DropShadowEffect x:Name="shadow" BlurRadius="0" ShadowDepth="0"/>
+                        </Border.Effect>
+                        <WrapPanel Background="#004556" Name="wrapJuego" Margin="-1,-1,-1, -1" Cursor="Hand" >
+                            <WrapPanel.Triggers>
+                                <EventTrigger RoutedEvent="WrapPanel.MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="shadow"
+                                                Storyboard.TargetProperty="BlurRadius"
+                                                From="0" To="5" Duration="0:0:0.2"
+                                            />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="shadow"
+                                                Storyboard.TargetProperty="ShadowDepth"
+                                                From="0" To="5" Duration="0:0:0.2"
+                                            />
+                                            <ThicknessAnimation
+                                                Storyboard.TargetName="border"
+                                                Storyboard.TargetProperty="Margin"
+                                                From="0, 0, 0, 0" To="2, 2, 0, 0" Duration="0:0:0.2"
+                                            />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="WrapPanel.MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="shadow"
+                                                Storyboard.TargetProperty="BlurRadius"
+                                                From="5" To="0" Duration="0:0:0.2"
+                                            />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="shadow"
+                                                Storyboard.TargetProperty="ShadowDepth"
+                                                From="5" To="0" Duration="0:0:0.2"
+                                            />
+                                            <ThicknessAnimation
+                                                Storyboard.TargetName="border"
+                                                Storyboard.TargetProperty="Margin"
+                                                From="2, 2, 0, 0" To="0, 0, 0, 0" Duration="0:0:0.2"
+                                            />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </WrapPanel.Triggers>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="60" />
+                                    <RowDefinition Height="60" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="500" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding PortadaSource}"  Width ="100" Height="120" Stretch="Fill" Grid.Column="0" Grid.RowSpan="2"/>
+                                <TextBlock Text="{Binding Nombre}" Margin="20,10,0,0" Foreground="White" FontSize="18"  Grid.Column="1" Grid.Row="0"/>
+                                <ListView Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Generos}">
+                                    <ListView.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Orientation="Horizontal"></StackPanel>
+                                        </ItemsPanelTemplate>
+                                    </ListView.ItemsPanel>
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <WrapPanel Background="Gray" Height="18">
+                                                <TextBlock Foreground="White" Text="{Binding}" Padding="1, 1, 1, 1"/>
+                                            </WrapPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                                <TextBlock Text="{Binding Precio, StringFormat={}{0}€}" Margin="50, 40, 0, 0" Foreground="White" FontSize="20"  Grid.Column="2" Grid.RowSpan="2"/>
+                            </Grid>
                         </WrapPanel>
                     </Border>
                 </DataTemplate>

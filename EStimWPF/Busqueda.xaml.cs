@@ -44,15 +44,16 @@ namespace EStimWPF
             {
                 string json = await client.GetStringAsync(URL);
                 List<Juego> obtenidos = JsonSerializer.Deserialize<List<Juego>>(json);
+                Debug.WriteLine(obtenidos[1].PortadaB64);
                 foreach(Juego juego in obtenidos)
-                {
+                {   
                     Application.Current.Dispatcher.Invoke(() => {
-                        byte[] binaryData = Convert.FromBase64String(juego.portadaB64);
-                        juego.portadaSource = new BitmapImage();
-                        juego.portadaSource.BeginInit();
-                        juego.portadaSource.StreamSource = new MemoryStream(binaryData);
-                        juego.portadaSource.EndInit();
-                        juego.portadaB64 = "";
+                        byte[] binaryData = Convert.FromBase64String(juego.PortadaB64);
+                        juego.PortadaSource = new BitmapImage();
+                        juego.PortadaSource.BeginInit();
+                        juego.PortadaSource.StreamSource = new MemoryStream(binaryData);
+                        juego.PortadaSource.EndInit();
+                        juego.PortadaB64 = "";
                         listita.Add(juego);
                     });
                 }
@@ -60,9 +61,9 @@ namespace EStimWPF
         }
 
         private void GoToGamePage(object sender, SelectionChangedEventArgs e)
-        {   
-            //Debug.WriteLine((listaJuegos.SelectedItem as Juego).nombre);
-            //MainWindow.Frame.Navigate(new Test(listaJuegos.SelectedItem as Juego));
+        {
+            
         }
+
     }
 }
