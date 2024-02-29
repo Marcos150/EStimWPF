@@ -14,7 +14,7 @@ namespace EStimWPF
         {
             InitializeComponent();
             this.juego = new Juego();
-            juego.Nombre = "a";
+            juego.Nombre = "Me gusta el queso";
             
 
             this.DataContext = juego;
@@ -23,6 +23,11 @@ namespace EStimWPF
         public void SetJuego(Juego juego)
         {
             this.juego = juego;
+        }
+
+        public void RefrescarVista()
+        {
+            this.DataContext = juego;
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
