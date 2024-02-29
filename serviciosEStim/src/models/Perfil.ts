@@ -5,14 +5,8 @@ export interface Perfil {
     NombreUsuario: string;
     Contrasenya: string;
     Descripcion?: string;
-    Estado: Estado;
+    Estado: string;
     Region: string;
     JuegosAdquiridos: Juego[];
     ImagenB64?: string;
-}
-
-export enum Estado {
-    Desconectado,
-    Conectado,
-    Ausente
 }
