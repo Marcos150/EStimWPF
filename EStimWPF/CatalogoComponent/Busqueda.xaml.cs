@@ -21,7 +21,7 @@ using Wpf.Ui.Markup;
 using System.Xml;
 using System.IO;
 
-namespace EStimWPF
+namespace EStimWPF.CatalogoComponent
 {
     /// <summary>
     /// Lógica de interacción para Busqueda.xaml
@@ -35,7 +35,7 @@ namespace EStimWPF
         {
             InitializeComponent();
             listaJuegos.ItemsSource = juegos;
-            Task.Run(() => GetJuegos(juegos)); 
+            Task.Run(() => GetJuegos(juegos));
         }
 
         private async Task GetJuegos(ObservableCollection<Juego> listita)
@@ -62,8 +62,6 @@ namespace EStimWPF
 
         private void GoToGamePage(object sender, SelectionChangedEventArgs e)
         {
-            
         }
-
     }
 }

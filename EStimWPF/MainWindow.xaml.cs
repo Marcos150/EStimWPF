@@ -15,14 +15,17 @@ namespace EStimWPF
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : UiWindow
+    public partial class MainWindow
     {
         public static Frame Frame { get; set; }
+        public List<String> juegos = new List<String> { "Tekken 8", "Street Fighter 6", "Dark Souls" };
         public MainWindow()
         {
             InitializeComponent();
-            Frame = mainFrame;
-            mainFrame.Navigate(new Busqueda());
+            
+            AutoSuggestBox.SuggestionChosen += SuggestionChoosen;
+            AutoSuggestBox.TextChanged += TextChanged;
+            AutoSuggestBox.Focusable = false;
         }
 
         private void AbrirVentanas(object sender, RoutedEventArgs e)
@@ -43,6 +46,23 @@ namespace EStimWPF
             {
               window.Close();
             }
+        }
+
+        private void SuggestionChoosen(AutoSuggestBox asb, AutoSuggestBoxSuggestionChosenEventArgs e)
+        {
+            RootNavigation.Navigate("Catalogo");
+        }
+
+        private void TextChanged(AutoSuggestBox aus, AutoSuggestBoxTextChangedEventArgs e)
+        {
+            if(aus.Text == "")
+            {
+                aus.OriginalItemsSource = null;
+            }
+            else
+            {
+                aus.OriginalItemsSource = juegos;
+            }    
         }
     }
 }

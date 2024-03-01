@@ -1,4 +1,4 @@
-﻿<ui:UiPage x:Class="EStimWPF.GamePage"
+﻿<Page x:Class="EStimWPF.GamePage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -19,4 +19,4 @@
         <Label x:Name="precio" Content="Label" HorizontalAlignment="Left" Margin="530,420,0,0" VerticalAlignment="Top" Width="249"/>
 
     </Grid>
-</ui:UiPage>
+</Page>

@@ -11,6 +11,7 @@
         private List<Juego> juegosAdquiridos;
         private string imagenB64;
 
+        public Perfil() { }
         public Perfil(string id, string nombreUsuario, string contrasenya
             , string descripcion, Estado estado, string region, 
             List<Juego> juegosAdquiridos, string imagenB64)
