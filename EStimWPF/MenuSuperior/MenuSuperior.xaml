@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="EStimWPF.MenuSuperior.MenuSuperior"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="80" d:DesignWidth="1920"
+             >
+    
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#171d25"/>
+            <Setter Property="Foreground" Value="#dcdedf"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="Helvetica" />
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#27323C"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    
+    <StackPanel Orientation="Horizontal" Background="#171d25">
+        <Border Padding="2" Margin="600, 0, 0, 0" Height="60" Width="225">
+            <Button Content="{Binding LogoWeb}"/>
+        </Border>
+        <Border Padding="2" Margin="5" Height="60" Width="115">
+            <Button Content="{Binding Elemento1}"/>
+        </Border>
+        <Border Padding="2" Margin="5" Height="60" Width="115">
+            <Button Content="{Binding Elemento2}"/>
+        </Border>
+        <Border Padding="2" Margin="5" Height="60" Width="115">
+            <Button Content="{Binding Elemento3}"/>
+        </Border>
+        <Border Padding="2" Margin="5" Height="60" Width="115">
+            <Button Content="{Binding Elemento4}"/>
+        </Border>
+
+    </StackPanel>
+</UserControl>
