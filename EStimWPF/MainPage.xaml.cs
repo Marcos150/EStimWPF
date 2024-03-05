@@ -1,11 +1,14 @@
 using System.Windows;
+using System.Windows.Controls;
 
-namespace EStimWPF;
-
-public partial class MainPage : Window
+namespace EStimWPF
 {
-    public MainPage()
+    public partial class MainPage : Page
     {
-        InitializeComponent();
+        public MainPage()
+        {
+            InitializeComponent();
+        }
+
     }
 }
