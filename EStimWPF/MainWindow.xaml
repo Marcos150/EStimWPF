@@ -1,4 +1,4 @@
-﻿<ui:UiWindow x:Class="EStimWPF.MainWindow"
+﻿<Window x:Class="EStimWPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -12,4 +12,4 @@
         <Button Content="Cerrar ventanas" Margin="360,239,0,0" Click="CerrarVentanas" VerticalAlignment="Top"/>
 
     </Grid>
-</ui:UiWindow>
+</Window>
