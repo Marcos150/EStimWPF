@@ -1,14 +1,14 @@
 ﻿using EStimWPF.models;
 using System.IO;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
-using Wpf.Ui.Controls;
 
 namespace EStimWPF
 {
     /// <summary>
     /// Lógica de interacción para GamePage.xaml
     /// </summary>
-    public partial class GamePageViewModel : UiPage
+    public partial class GamePageViewModel : Page
     {
         private Juego juego;
 
