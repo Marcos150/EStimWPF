@@ -12,14 +12,17 @@
         <local:ConvertidorMoneda x:Key="ConvertidorMoneda"/>
     </Page.Resources>
 
-    <Grid>
+    <Grid Background="#304a61">
         <Image x:Name="portada" HorizontalAlignment="Left" Height="228" Margin="20,71,0,0" VerticalAlignment="Top" Width="447"/>
-        <Image x:Name="banner" HorizontalAlignment="Left" Height="112" Margin="530,71,0,0" VerticalAlignment="Top" Width="250"/>
-        <Label x:Name="titulo" Content="{Binding Nombre}" HorizontalAlignment="Left" Margin="20,30,0,0" VerticalAlignment="Top" Width="380"/>
-        <Label x:Name="descripcion" Content="{Binding Descripcion}" HorizontalAlignment="Left" Margin="530,212,0,0" VerticalAlignment="Top" Width="249" Height="101"/>
-        <Label x:Name="fechaLanzamiento" Content="{Binding FechaLanzamiento}" HorizontalAlignment="Left" Margin="530,330,0,0" VerticalAlignment="Top" Width="249"/>
-        <Label x:Name="desarrolladora" Content="{Binding Desarrolladora}" HorizontalAlignment="Left" Margin="530,373,0,0" VerticalAlignment="Top" Width="249"/>
-        <Label x:Name="precio" Content="{Binding Precio, Converter={StaticResource ConvertidorMoneda}}" HorizontalAlignment="Left" Margin="530,420,0,0" VerticalAlignment="Top" Width="249"/>
-
+        <Label x:Name="titulo" Foreground="#dcdedf" Content="{Binding Nombre}" HorizontalAlignment="Left" Margin="20,30,0,0" VerticalAlignment="Top" Width="380"/>
+        <Border HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="3" Margin="443,109,0,0">
+            <Grid>
+                <Image x:Name="banner"  Height="112" VerticalAlignment="Top" Width="250" Margin="0,10,0,0"/>
+                <Label x:Name="descripcion" Foreground="#dcdedf" Content="{Binding Descripcion}" Margin="0,150,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="249" Height="101"/>
+                <Label x:Name="fechaLanzamiento" Foreground="#dcdedf" Content="{Binding FechaLanzamiento}" Margin="0,235,0,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" Width="249"/>
+                <Label x:Name="desarrolladora" Foreground="#dcdedf" Content="{Binding Desarrolladora}" Margin="0,275,0,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" Width="249"/>
+                <Label x:Name="precio" Foreground="#dcdedf" Content="{Binding Precio, Converter={StaticResource ConvertidorMoneda}}" Margin="0,320,0,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" Width="249"/>
+            </Grid>
+        </Border>
     </Grid>
 </Page>
