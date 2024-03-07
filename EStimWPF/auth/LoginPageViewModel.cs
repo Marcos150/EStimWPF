@@ -27,10 +27,9 @@ namespace EStimWPF.auth
         UserService service = new UserService("perfiles");
         event EventHandler<LoginPageViewModel> OnLoginPage;
         Page destination;
-        public LoginPageViewModel(Page destination)
+        public LoginPageViewModel()
         {
             InitializeComponent();
-            this.destination = destination;
             this.btn_accept.IsEnabled = true;
         }
         private async void LogIn(object sender, EventArgs e)
@@ -39,7 +38,6 @@ namespace EStimWPF.auth
             User user=users[0];
             if (user.NombreUsuario==this.txt_login.Text && user.Contrasenya==this.txt_password.Text)
             {  
-                MessageBox.Show("Éxito");
                 this.NavigationService.Navigate(destination);
             }
         }
