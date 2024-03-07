@@ -11,6 +11,14 @@
       Background="#004556">
     <Grid Margin="30,5,0,0">
         <ItemsControl Name="listaJuegos">
+            <ItemsControl.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard Storyboard="{StaticResource itemLoaded}">
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </ItemsControl.Triggers>
             <ItemsControl.ItemContainerStyle>
                 <Style>
                     <Setter Property="FrameworkElement.Margin" Value="5"/>
@@ -18,7 +26,7 @@
             </ItemsControl.ItemContainerStyle>
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Rows ="1" Columns="4" x:Name="grid"/>
+                    <UniformGrid Rows="{Binding rows}" Columns="4" x:Name="grid"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>

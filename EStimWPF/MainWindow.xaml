@@ -10,33 +10,6 @@
         Title="MainWindow" Height="450" Width="900"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
     <Grid Background="#0c758e">
-        <ui:NavigationView OpenPaneLength="147"  x:Name="RootNavigation" IsBackButtonVisible="Collapsed">
-            <ui:NavigationView.AutoSuggestBox>
-                <ui:AutoSuggestBox x:Name="AutoSuggestBox" PlaceholderText="Buscar">
-                    <ui:AutoSuggestBox.Icon>
-                        <ui:IconSourceElement>
-                            <ui:SymbolIconSource Symbol="Search24" />
-                        </ui:IconSourceElement>
-                    </ui:AutoSuggestBox.Icon>
-                </ui:AutoSuggestBox>
-            </ui:NavigationView.AutoSuggestBox>
-            <ui:NavigationView.MenuItems>
-                <ui:NavigationViewItem Content="Catálogo" TargetPageType="{x:Type catalogo:Busqueda}">
-                    <ui:NavigationViewItem.Icon>
-                        <ui:SymbolIcon Symbol="Games16" />
-                    </ui:NavigationViewItem.Icon>
-                </ui:NavigationViewItem>
-                <ui:NavigationViewItem Content="Perfil">
-                    <ui:NavigationViewItem.Icon>
-                        <ui:SymbolIcon Symbol="Person16" />
-                    </ui:NavigationViewItem.Icon>
-                </ui:NavigationViewItem>
-                <ui:NavigationViewItem Content="Biblioteca" TargetPageType="{x:Type biblioteca:Biblioteca}">
-                    <ui:NavigationViewItem.Icon>
-                        <ui:SymbolIcon Symbol="Library16" />
-                    </ui:NavigationViewItem.Icon>
-                </ui:NavigationViewItem>
-            </ui:NavigationView.MenuItems>
-        </ui:NavigationView>
+        
     </Grid>
 </Window>

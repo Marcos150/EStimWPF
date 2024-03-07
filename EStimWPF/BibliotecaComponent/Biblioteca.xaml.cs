@@ -33,9 +33,11 @@ namespace EStimWPF.BibliotecaComponent
 
         private ObservableCollection<Juego> juegos = new ObservableCollection<Juego>();
 
+        private int rows;
         public Biblioteca()
         {   
             InitializeComponent(); ;
+            rows = 1;
             listaJuegos.ItemsSource = juegos;
             Task.Run(() => GetJuegos());
         }
@@ -59,7 +61,7 @@ namespace EStimWPF.BibliotecaComponent
                         juegos.Add(juego);
                         if(counter == 4)
                         {
-                            ugrid.Rows++;
+                            rows++;
                         }
                         counter++;
                     });
