@@ -1,0 +1,26 @@
+﻿<Page x:Class="EStimWPF.ProfilePageViewModel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EStimWPF"
+        mc:Ignorable="d"
+        Title="ProfileWindow" Height="450" Width="800"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
+    <Grid Background="White">
+        <Button x:Name="editProfile" Background="#283241" Foreground="White" Margin="625,117,0,0" VerticalAlignment="Top" Content="Editar Perfil" Click="editProfile_Click"/>
+        <Label Content="{Binding Region, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="Black" Foreground="White" HorizontalAlignment="Left" Margin="358,50,0,0" VerticalAlignment="Top" Width="258" Height="39"/>
+        <Image x:Name="profilePic" Source="{Binding ImagenB64,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="100" Margin="46,34,0,0" VerticalAlignment="Top" Width="100"/>
+        <ListView x:Name="gameList"  Margin="46,170,184,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label x:Name="description" Content="{Binding Estado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="184,51,0,0" VerticalAlignment="Top" Width="169" Height="40"/>
+        <Label Content="{Binding NombreUsuario, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" Width="432" Height="25"/>
+        <Label Content="{Binding Descripcion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Margin="0,95,0,0" VerticalAlignment="Top" Width="432" Height="54"/>
+
+    </Grid>
+</Page>

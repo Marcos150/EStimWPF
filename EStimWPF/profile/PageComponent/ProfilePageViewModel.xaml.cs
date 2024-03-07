@@ -1,4 +1,7 @@
-﻿using System;
+﻿using EStimWPF.models;
+using EStimWPF.profile.services;
+using EStimWPF.ProfilePageComponent.models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,12 +20,15 @@ namespace EStimWPF
     /// <summary>
     /// Lógica de interacción para ProfileWindow.xaml
     /// </summary>
-    public partial class ProfileWindow : Window
+    public partial class ProfilePageViewModel
     {
-        public ProfileWindow()
+        private User usuario;
+        internal ProfilePageViewModel(User usuario)
         {
+            this.usuario = usuario;
             InitializeComponent();
+            DataContext = this.usuario;
+            this.gameList.ItemsSource = this.usuario.JuegosAdquiridos;
         }
-
     }
 }
