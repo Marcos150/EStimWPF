@@ -1,4 +1,14 @@
+<<<<<<< HEAD
 ﻿namespace EStimWPF.NavBarComponent.models
+=======
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EStimWPF.NavBarComponent.models
+>>>>>>> main
 {
     internal class navBarViewModel
     {

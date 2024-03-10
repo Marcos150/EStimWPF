@@ -1,7 +1,11 @@
 //Librerias
 import express from 'express';
 import { Juego } from './models/Juego.js';
+<<<<<<< HEAD
 import { Estado, Perfil } from './models/Perfil.js';
+=======
+import { Perfil } from './models/Perfil.js';
+>>>>>>> main
 
 const juego1: Juego = {
     Id: "1",
@@ -30,7 +34,11 @@ const perfil1: Perfil = {
     Id: '1',
     NombreUsuario: 'Paquito69',
     Contrasenya: 'Hola me llamo Paquito',
+<<<<<<< HEAD
     Estado: Estado.Conectado,
+=======
+    Estado: "Conectado",
+>>>>>>> main
     Region: 'España',
     JuegosAdquiridos: [juego1, juego2]
 }
@@ -38,7 +46,11 @@ const perfil2: Perfil = {
     Id: '2',
     NombreUsuario: 'Pepito420',
     Contrasenya: 'Hola me llamo Pepito',
+<<<<<<< HEAD
     Estado: Estado.Ausente,
+=======
+    Estado: "Ausente",
+>>>>>>> main
     Region: 'Andorra',
     JuegosAdquiridos: [juego2, juego1]
 }
@@ -56,7 +68,11 @@ app.get("/juegos", (_req, res) => {
 
 //Servicios
 app.get("/juegos/:id", (_req, res) => {
+<<<<<<< HEAD
     res.send(juego1)
+=======
+    res.send([juego1])
+>>>>>>> main
 });
 
 app.get("/perfiles", (_req, res) => {
@@ -64,7 +80,11 @@ app.get("/perfiles", (_req, res) => {
 });
 
 app.get("/perfiles/:id", (_req, res) => {
+<<<<<<< HEAD
     res.send(perfil2)
+=======
+    res.send([perfil2])
+>>>>>>> main
 });
 
 //Puesta en marcha

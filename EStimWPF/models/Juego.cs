@@ -1,6 +1,10 @@
 ﻿namespace EStimWPF.models
 {
+<<<<<<< HEAD
     class Juego
+=======
+    public class Juego
+>>>>>>> main
     {
         private string id;
         private string nombre;
@@ -12,6 +16,13 @@
         private List<string> generos;
         private string portadaB64;
 
+<<<<<<< HEAD
+=======
+        public Juego()
+        {
+        }
+
+>>>>>>> main
         public Juego(string id, string nombre, string descripcion, double precio, DateTime fechaLanzamiento, string desarrollador, string editor, List<string> generos, string portadaB64)
         {
             this.id = id;
@@ -28,6 +39,10 @@
         public string Id { get => id; set => id = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
+<<<<<<< HEAD
+=======
+        public double Precio { get => precio; set => precio = value; }
+>>>>>>> main
         public DateTime FechaLanzamiento { get => fechaLanzamiento; set => fechaLanzamiento = value; }
         public string Desarrollador { get => desarrollador; set => desarrollador = value; }
         public string Editor { get => editor; set => editor = value; }
