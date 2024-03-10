@@ -7,9 +7,12 @@
         xmlns:catalogo="clr-namespace:EStimWPF.CatalogoComponent"
         xmlns:biblioteca="clr-namespace:EStimWPF.BibliotecaComponent"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="900"
+        Title="MainWindow"
+        WindowState="Maximized"
+        WindowStyle="SingleBorderWindow"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
     <Grid Background="#0c758e">
+    <Frame Name="MainNavigationFrame" />
         
     </Grid>
 </Window>

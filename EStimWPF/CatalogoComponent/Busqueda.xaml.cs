@@ -20,6 +20,7 @@ using System.Text.Json;
 using Wpf.Ui.Markup;
 using System.Xml;
 using System.IO;
+using EStimWPF.BibliotecaComponent;
 
 namespace EStimWPF.CatalogoComponent
 {
@@ -62,6 +63,14 @@ namespace EStimWPF.CatalogoComponent
 
         private void GoToGamePage(object sender, SelectionChangedEventArgs e)
         {
+        }
+
+        private void NuevaVentana(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Space)
+            {
+                MainWindow.navigation.Navigate(new Biblioteca());
+            }
         }
     }
 }

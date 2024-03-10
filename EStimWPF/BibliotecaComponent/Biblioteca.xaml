@@ -6,56 +6,68 @@
       xmlns:local="clr-namespace:EStimWPF.BibliotecaComponent"
       mc:Ignorable="d"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Biblioteca"
-      Background="#004556">
-    <Grid Margin="30,5,0,0">
-        <ItemsControl Name="listaJuegos">
-            <ItemsControl.Triggers>
-                <EventTrigger RoutedEvent="Loaded">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard Storyboard="{StaticResource itemLoaded}">
-                        </BeginStoryboard>
-                    </EventTrigger.Actions>
-                </EventTrigger>
-            </ItemsControl.Triggers>
-            <ItemsControl.ItemContainerStyle>
-                <Style>
-                    <Setter Property="FrameworkElement.Margin" Value="5"/>
-                </Style>
-            </ItemsControl.ItemContainerStyle>
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <UniformGrid Rows="{Binding rows}" Columns="4" x:Name="grid"/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Border  BorderBrush="Transparent" BorderThickness="2" Name="border">
-                        <Border.Effect>
-                            <DropShadowEffect x:Name="shadow" BlurRadius="0" ShadowDepth="0"/>
-                        </Border.Effect>
-                        <WrapPanel Name="wrapJuego"  Cursor="Hand" >
-                            <WrapPanel.Triggers>
-                                <EventTrigger RoutedEvent="WrapPanel.MouseEnter">
-                                    <BeginStoryboard Storyboard="{StaticResource Focused}"/>
-                                </EventTrigger>
-                                <EventTrigger RoutedEvent="WrapPanel.MouseLeave">
-                                    <BeginStoryboard Storyboard="{StaticResource NotFocused}"/>
-                                </EventTrigger>
-                            </WrapPanel.Triggers>
-                            <Image Source="{Binding PortadaSource}"  Width ="130" Height="170" Stretch="Fill" Grid.Row="0">
-                                <Image.ContextMenu>
-                                    <ContextMenu>
-                                        <MenuItem Header="Eliminar" Click="Eliminar">
-                                        </MenuItem>
-                                    </ContextMenu>
-                                </Image.ContextMenu>
-                            </Image>
-                        </WrapPanel>
-                    </Border>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="Biblioteca" KeyDown="NuevaVentana"
+      >
+    <Grid Background="#304a61">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1450"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.Column="1" Grid.Row="1">
+            <ItemsControl Name="listaJuegos" Background="#171d25" BorderBrush="Black"
+                      BorderThickness="5" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                <ItemsControl.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard Storyboard="{StaticResource itemLoaded}">
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </ItemsControl.Triggers>
+                <ItemsControl.ItemContainerStyle>
+                    <Style>
+                        <Setter Property="FrameworkElement.Margin" Value="5"/>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Rows="{Binding rows}" Columns="4" x:Name="grid"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate >
+                    <DataTemplate >
+                        <Border  BorderBrush="Transparent" BorderThickness="2" Name="border">
+                            <Border.Effect>
+                                <DropShadowEffect x:Name="shadow" BlurRadius="0" ShadowDepth="0"/>
+                            </Border.Effect>
+                            <WrapPanel Name="wrapJuego"  Cursor="Hand">
+                                <WrapPanel.Triggers>
+                                    <EventTrigger RoutedEvent="WrapPanel.MouseEnter">
+                                        <BeginStoryboard Storyboard="{StaticResource Focused}"/>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="WrapPanel.MouseLeave">
+                                        <BeginStoryboard Storyboard="{StaticResource NotFocused}"/>
+                                    </EventTrigger>
+                                </WrapPanel.Triggers>
+                                <Image Source="{Binding PortadaSource}" Margin="65"  Width="200" Height="250" Stretch="Fill" MouseRightButtonDown="ImageClick">
+                                    <Image.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="Eliminar" Click="Eliminar">
+                                            </MenuItem>
+                                        </ContextMenu>
+                                    </Image.ContextMenu>
+                                </Image>
+                            </WrapPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
     </Grid>
 </Page>

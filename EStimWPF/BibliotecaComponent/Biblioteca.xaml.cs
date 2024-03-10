@@ -1,4 +1,5 @@
-﻿using EStimWPF.models;
+﻿using EStimWPF.CatalogoComponent;
+using EStimWPF.models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -28,50 +29,64 @@ namespace EStimWPF.BibliotecaComponent
     public partial class Biblioteca : Page
     {
 
-        private const string URL = "http://localhost:8080/juegos";
+        private const string URL = "perfiles/2";
+        private Http<Perfil> http;
+        private Perfil perfil;
+        private Juego selectedJuego;
 
-
-        private ObservableCollection<Juego> juegos = new ObservableCollection<Juego>();
-
-        private int rows;
+        private int rows = 3;
         public Biblioteca()
         {   
-            InitializeComponent(); ;
-            rows = 1;
-            listaJuegos.ItemsSource = juegos;
-            Task.Run(() => GetJuegos());
+            InitializeComponent();
+            http = new Http<Perfil>();
+            if (MainWindow.perfil == null)
+                Task.Run(() => GetJuegos());
+            else
+                listaJuegos.ItemsSource = MainWindow.perfil.JuegosAdquiridos;
+
         }
 
         private async Task GetJuegos()
         {
-            using (HttpClient client = new HttpClient())
-            {
-                string json = await client.GetStringAsync(URL);
-                List<Juego> obtenidos = JsonSerializer.Deserialize<List<Juego>>(json);
-                int counter = 0;
-                foreach (Juego juego in obtenidos)
+            {   
+                MainWindow.perfil = new Perfil();
+                MainWindow.perfil = await http.Get(URL);
+                Application.Current.Dispatcher.Invoke(() =>
                 {
-                    Application.Current.Dispatcher.Invoke(() => {
+                    foreach (Juego juego in MainWindow.perfil.JuegosAdquiridos)
+                    {   
+                        Debug.WriteLine(juego.PortadaB64);
                         byte[] binaryData = Convert.FromBase64String(juego.PortadaB64);
                         juego.PortadaSource = new BitmapImage();
                         juego.PortadaSource.BeginInit();
                         juego.PortadaSource.StreamSource = new MemoryStream(binaryData);
                         juego.PortadaSource.EndInit();
                         juego.PortadaB64 = "";
-                        juegos.Add(juego);
-                        if(counter == 4)
-                        {
-                            rows++;
-                        }
-                        counter++;
-                    });
-                }
+                    }
+                    listaJuegos.ItemsSource = MainWindow.perfil.JuegosAdquiridos;
+                });
             }
         }
 
         private void Eliminar(object sender, RoutedEventArgs e)
         {
+            ObservableCollection<Juego> juegos = listaJuegos.ItemsSource as ObservableCollection<Juego>;
+            juegos.Remove(selectedJuego);
+            Debug.WriteLine(juegos.Count);
+        }
+        private void ImageClick(object sender, MouseButtonEventArgs e)
+        {
+            selectedJuego = (listaJuegos.ItemsSource as ObservableCollection<Juego>).ToList().Find(j => j.PortadaSource == (sender as Image).Source);
+            Debug.WriteLine(selectedJuego.GetType().Name);
+        }
 
+        private void NuevaVentana(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Space)
+            {
+                MainWindow.navigation.Navigate(new Busqueda());
+            }
+                
         }
     }
 }

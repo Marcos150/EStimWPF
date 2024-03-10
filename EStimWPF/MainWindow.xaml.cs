@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using EStimWPF.models;
+using System.Runtime.CompilerServices;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -17,9 +19,13 @@ namespace EStimWPF
     /// </summary>
     public partial class MainWindow
     {
+        public static Perfil perfil;
+        public static Frame navigation;
         public MainWindow()
         {
             InitializeComponent();
+            navigation = MainNavigationFrame;
+            MainNavigationFrame.Navigate(new BibliotecaComponent.Biblioteca());
         }
     }
 }
