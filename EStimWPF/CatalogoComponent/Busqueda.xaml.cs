@@ -1,25 +1,10 @@
 ﻿using EStimWPF.models;
 using System;
 using System.Net.Http;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Diagnostics;
-using System.Text.Json;
-using Wpf.Ui.Markup;
-using System.Xml;
-using System.IO;
 using EStimWPF.BibliotecaComponent;
 
 namespace EStimWPF.CatalogoComponent
@@ -29,36 +14,27 @@ namespace EStimWPF.CatalogoComponent
     /// </summary>
     public partial class Busqueda : Page
     {
-        ObservableCollection<Juego> juegos = new ObservableCollection<Juego>();
-        private const string URL = "http://localhost:8080/juegos";
-        private int counter = 0;
+        private const string URL = "juegos";
+        private Http<ObservableCollection<Juego>> http;
         public Busqueda()
         {
             InitializeComponent();
-            listaJuegos.ItemsSource = juegos;
-            Task.Run(() => GetJuegos(juegos));
+            http = new Http<ObservableCollection<Juego>>();
+            Task.Run(() => GetJuegos());
         }
 
-        private async Task GetJuegos(ObservableCollection<Juego> listita)
+        private async Task GetJuegos()
         {
-            using (HttpClient client = new HttpClient())
+            ObservableCollection<Juego> juegos = await http.Get(URL);
+            Application.Current.Dispatcher.Invoke(()=> 
             {
-                string json = await client.GetStringAsync(URL);
-                List<Juego> obtenidos = JsonSerializer.Deserialize<List<Juego>>(json);
-                Debug.WriteLine(obtenidos[1].PortadaB64);
-                foreach(Juego juego in obtenidos)
-                {   
-                    Application.Current.Dispatcher.Invoke(() => {
-                        byte[] binaryData = Convert.FromBase64String(juego.PortadaB64);
-                        juego.PortadaSource = new BitmapImage();
-                        juego.PortadaSource.BeginInit();
-                        juego.PortadaSource.StreamSource = new MemoryStream(binaryData);
-                        juego.PortadaSource.EndInit();
-                        juego.PortadaB64 = "";
-                        listita.Add(juego);
-                    });
+                foreach (Juego juego in juegos)
+                {
+                    juego.PortadaSource = ImageGenerator.GenerateImage(juego.PortadaB64);
+                    juego.PortadaB64 = "";
                 }
-            }
+                listaJuegos.ItemsSource = juegos;
+            });
         }
 
         private void GoToGamePage(object sender, SelectionChangedEventArgs e)
