@@ -31,18 +31,16 @@ namespace EStimWPF.BibliotecaComponent
 
         private async Task GetJuegos()
         {
-            {   
-                perfil = await http.Get(URL);
-                Application.Current.Dispatcher.Invoke(() =>
+            perfil = await http.Get(URL);
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                foreach (Juego juego in perfil.JuegosAdquiridos)
                 {
-                    foreach (Juego juego in perfil.JuegosAdquiridos)
-                    {
-                        juego.PortadaSource = ImageGenerator.GenerateImage(juego.PortadaB64);
-                        juego.PortadaB64 = "";
-                    }
-                    listaJuegos.ItemsSource = perfil.JuegosAdquiridos;
-                });
-            }
+                    juego.PortadaSource = ImageGenerator.GenerateImage(juego.PortadaB64);
+                    juego.PortadaB64 = "";
+                }
+                listaJuegos.ItemsSource = perfil.JuegosAdquiridos;
+            });
         }
 
         private void Eliminar(object sender, RoutedEventArgs e)

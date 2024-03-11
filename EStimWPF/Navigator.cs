@@ -25,5 +25,20 @@ namespace EStimWPF
                 }
             }
         }
+
+        public static void Login(List<Frame> frames, string search)
+        {
+            foreach (Frame frame in frames)
+            {
+                if(search.Contains(frame.Name))
+                {
+                    frame.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    frame.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
     }
 }

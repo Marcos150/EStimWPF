@@ -69,8 +69,8 @@ const juego4: Juego = {
 
 const perfil1: Perfil = {
     Id: '1',
-    NombreUsuario: 'Paquito69',
-    Contrasenya: 'Hola me llamo Paquito',
+    NombreUsuario: 'test',
+    Contrasenya: 'test',
     Estado: "Conectado",
     Region: 'España',
     JuegosAdquiridos: [juego1, juego2]

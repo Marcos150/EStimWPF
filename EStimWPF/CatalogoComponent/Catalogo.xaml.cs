@@ -47,7 +47,7 @@ namespace EStimWPF.CatalogoComponent
         {
             if (e.Key == Key.Space)
             {
-                MainWindow.navigation.Navigate(new Biblioteca());
+                
             }
         }
     }

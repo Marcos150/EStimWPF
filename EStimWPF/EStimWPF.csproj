@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="resources\ic_estim.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="WPF-UI" Version="3.0.0" />
   </ItemGroup>
 
@@ -18,6 +22,22 @@
     <PackageReference Include="Syncfusion.Shared.WPF" Version="24.2.9" />
     <PackageReference Include="WPF-UI" Version="3.0.0" />
     <PackageReference Include="WPFToolkits" Version="3.5.50211.1" />
+    <Resource Include="resources\ic_estim.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

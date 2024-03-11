@@ -1,0 +1,24 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EStimWPF.auth"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" x:Class="EStimWPF.auth.LoginPageViewModel"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="LoginPage">
+
+    <Grid Background="#304A61">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="31*"/>
+            <RowDefinition Height="119*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="btn_accept" Background="Gray" Cursor="Hand" Content="Aceptar" Click="LogIn" Margin="110,251,400,0" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="56" Grid.Row="1"/>
+        <ui:TextBox x:Name="txt_login" Background="Gray" Cursor="Hand"  HorizontalContentAlignment="Center" Margin="90,97,90,0" TextWrapping="Wrap" PlaceholderText="Usuario" Text="" VerticalAlignment="Top" Grid.Row="1"/>
+        <ui:TextBox x:Name="txt_password" Background="Gray" Cursor="Hand" HorizontalContentAlignment="Center" Margin="90,155,90,0" TextWrapping="Wrap" PlaceholderText="Contraseña" Text="" VerticalAlignment="Top" Grid.Row="1"/>
+        <Label FontFamily="Impact" VerticalContentAlignment="center" Content="ESTIM" Foreground="White" FontSize="100px" HorizontalContentAlignment="Center" Margin="144,78,0,0" VerticalAlignment="Top" Height="32" HorizontalAlignment="Left" Width="50" Grid.RowSpan="2"/>
+        <ui:Image x:Name="ic_steam" Source="\resources\ic_estim.png" Margin="90,67,0,0" Grid.RowSpan="2" HorizontalAlignment="Left" Width="49" Height="54" VerticalAlignment="Top"/>
+
+    </Grid>
+</Page>

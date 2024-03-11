@@ -9,6 +9,6 @@ namespace EStimWPF
     /// </summary>
     public partial class App : Application
     {
-    }
 
+    }
 }

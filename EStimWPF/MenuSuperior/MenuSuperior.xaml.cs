@@ -15,8 +15,7 @@ namespace EStimWPF.MenuSuperior
 
         private void Perfil_Click(object sender, RoutedEventArgs e)
         {
-            /*ProfileWindow profileWindow = new ProfileWindow();
-            profileWindow.Show();*/
+            Navigator.Navigate(MainPage.Frames, "perfil");
         }
         
         private void Catalogo_Click(object sender, RoutedEventArgs e)
