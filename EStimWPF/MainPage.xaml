@@ -24,14 +24,16 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
         
             <Frame Grid.Row="0" Source="MenuSuperior/menuSuperior.xaml"></Frame>
             <Frame Grid.Row="1" Source="NavBarComponent/navBar.xaml" Margin="0, 10" ></Frame>
-            <Frame Grid.Row="2" Name="frame1" Source="DestacadosWindowComponent/Destacados.xaml" Margin="0, 30" HorizontalAlignment="Center"></Frame>
-            <Frame Grid.Row="3" Name="frame2" Source="DestacadosWindowComponent/Destacados.xaml" Margin="0, 30" HorizontalAlignment="Center"></Frame>
-            <Frame Grid.Row="4" Name="frame3" Source="DestacadosWindowComponent/Destacados.xaml" Margin="0, 30" HorizontalAlignment="Center"></Frame>
-            <Frame Grid.Row="5" Name="frame4" Source="DestacadosWindowComponent/Destacados.xaml" Margin="0, 30" HorizontalAlignment="Center"></Frame>
+            <!--<Frame Grid.Row="2" Name="Catalogo" Source="CatalogoComponent/Catalogo.xaml" Visibility="Collapsed" Margin="0, 10" ></Frame>-->
+            <Frame Grid.Row="3" Name="frame1" Source="DestacadosWindowComponent/Destacados.xaml" Margin="0, 30" HorizontalAlignment="Center"></Frame>
+            <Frame Grid.Row="4" Name="frame2" Source="DestacadosWindowComponent/Destacados.xaml" Margin="0, 30" HorizontalAlignment="Center"></Frame>
+            <Frame Grid.Row="5" Name="frame3" Source="DestacadosWindowComponent/Destacados.xaml" Margin="0, 30" HorizontalAlignment="Center"></Frame>
+            <Frame Grid.Row="6" Name="frame4" Source="DestacadosWindowComponent/Destacados.xaml" Margin="0, 30" HorizontalAlignment="Center"></Frame>
         </Grid>
     </ScrollViewer>
 </Window>

@@ -7,28 +7,49 @@
              d:DesignHeight="300" d:DesignWidth="750">
     
     <UserControl.Resources>
-        <Style TargetType="Grid">
-            <Setter Property="Background" Value="#171d25"/>
-        </Style>
-        
         <Style TargetType="Label">
             <Setter Property="Foreground" Value="#dcdedf"/>
             <Setter Property="FontSize" Value="16"/>
-            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="FontFamily" Value="Comic Sans MS" />
+        </Style>
+        
+        <Style TargetType="Image" x:Key="NormalImageStyle">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Width" Value="120"></Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="2" ScaleY="2" />
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Panel.ZIndex" Value="1"/>
+                    <Setter Property="RenderTransformOrigin" Value="0.5, 0.5" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="Image" x:Key="PortadaImageStyle">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="20,0,0,0"/>
         </Style>
     </UserControl.Resources>
-
-    <Grid>
-        <Image x:Name="portada" Source="{Binding PortadaB64}" MouseLeftButtonDown="Game_Click" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="472" Margin="0,-6,0,0"/>
-        <Label x:Name="nombreJuego" Content="{Binding Nombre}" HorizontalAlignment="Left" Margin="584,30,0,0" VerticalAlignment="Top" Width="100"/>
-        <Label x:Name="infoJuego" Content="{Binding Descripcion}" HorizontalAlignment="Left" Margin="584,235,0,0" VerticalAlignment="Top" Width="100"/>
-
-        <Grid Margin="540,55,10,65">
-            <Image x:Name="img1" Source="{Binding Img1}" HorizontalAlignment="Left" Height="59" Margin="10,10,0,0" VerticalAlignment="Top" Width="81"/>
-            <Image x:Name="img2" Source="{Binding Img2}" HorizontalAlignment="Left" Height="59" Margin="100,10,0,0" VerticalAlignment="Top" Width="81"/>
-            <Image x:Name="img3" Source="{Binding Img3}" HorizontalAlignment="Left" Height="59" Margin="10,82,0,0" VerticalAlignment="Top" Width="81"/>
-            <Image x:Name="img4" Source="{Binding Img4}" HorizontalAlignment="Left" Height="59" Margin="100,82,0,0" VerticalAlignment="Top" Width="81"/>
+    <Border CornerRadius="10" Background="#171d25">
+        <Grid>
+            <Image x:Name="portada" Style="{StaticResource PortadaImageStyle}" Source="{Binding PortadaB64}" MouseLeftButtonDown="Game_Click" Stretch="Fill" Width="450" Height="250"/>
+            <Label x:Name="nombreJuego" Content="{Binding Nombre}" HorizontalAlignment="Center" Margin="520,30,30,30" VerticalAlignment="Top" Width="auto"/>
+            <Label x:Name="infoJuego" Content="{Binding Descripcion}" HorizontalAlignment="Stretch" Margin="520,235,30,30" VerticalAlignment="Top" Width="auto" Height="auto"/>
+            <WrapPanel HorizontalAlignment="Center">
+                <Grid Margin="500,60,10,65" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image x:Name="img1" Style="{StaticResource NormalImageStyle}" Stretch="Fill" Source="{Binding Img1}" Height="59" Margin="10,10,0,0"/>
+                    <Image x:Name="img2" Style="{StaticResource NormalImageStyle}" Stretch="Fill" Source="{Binding Img2}" Height="59" Margin="160,10,0,0"/>
+                    <Image x:Name="img3" Style="{StaticResource NormalImageStyle}" Stretch="Fill" Source="{Binding Img3}" Height="59" Margin="10,82,0,0"/>
+                    <Image x:Name="img4" Style="{StaticResource NormalImageStyle}" Stretch="Fill" Source="{Binding Img4}" Height="59" Margin="160,82,0,0"/>
+                </Grid>
+            </WrapPanel>
         </Grid>
-
-    </Grid>
+    </Border>
 </UserControl>

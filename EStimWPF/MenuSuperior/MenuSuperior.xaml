@@ -33,8 +33,8 @@
     </UserControl.Resources>
     
     <StackPanel Orientation="Horizontal" Background="#171d25">
-        <Border Padding="2" Margin="600, 0, 0, 0" Height="60" Width="225">
-            <Button Content="{Binding LogoWeb}"/>
+        <Border Padding="2" Margin="680, 0, 0, 0" Height="60" Width="80">
+            <Image x:Name="LogoImage" Height="60" Width="60" Margin="5"/>        
         </Border>
         <Border Padding="2" Margin="5" Height="60" Width="115">
             <Button Content="{Binding Elemento1}" Click="Catalogo_Click"/>
