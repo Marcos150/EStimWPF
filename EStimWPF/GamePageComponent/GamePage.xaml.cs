@@ -53,14 +53,26 @@ namespace EStimWPF
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            // Cambia a la siguiente imagen
-            currentIndex = (currentIndex + 1) % 4;
-            this.banner.Source = imagePaths[currentIndex];
+            CarrouselDerecha(null, null);
         }
 
         public void RefrescarVista()
         {
             this.DataContext = juego;
+        }
+
+        private void CarrouselIzquierda(object sender, System.Windows.RoutedEventArgs e)
+        {
+            // Cambia a la anterior imagen
+            currentIndex = (currentIndex + 3) % 4;
+            this.banner.Source = imagePaths[currentIndex];
+        }
+
+        private void CarrouselDerecha(object sender, System.Windows.RoutedEventArgs e)
+        {
+            // Cambia a la siguiente imagen
+            currentIndex = (currentIndex + 1) % 4;
+            this.banner.Source = imagePaths[currentIndex];
         }
     }
 }

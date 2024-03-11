@@ -23,6 +23,8 @@
                 <ui:TextBlock FontSize="18" x:Name="desarrolladora" Foreground="#dcdedf" Text="{Binding Desarrolladora}" Margin="0,550,0,0" TextAlignment="Center" VerticalAlignment="Top" Width="465"/>
                 <ui:TextBlock FontSize="24" x:Name="precio" Foreground="#dcdedf" Text="{Binding Precio, Converter={StaticResource ConvertidorMoneda}}" Margin="0,600,0,0" TextAlignment="Center" VerticalAlignment="Top" Width="465"/>
                 <ui:Button Content="Añadir a la biblioteca" Margin="0,730,0,0" VerticalAlignment="Top" Height="86" Width="258" HorizontalAlignment="Center"/>
+                <ui:Button Content="🢀" Margin="28,10,0,0" VerticalAlignment="Top" Height="200" Width="48" Background="Transparent" Click="CarrouselIzquierda"/>
+                <ui:Button Content="🢂" Margin="482,10,0,0" VerticalAlignment="Top" Height="200" Width="48" Background="Transparent" Click="CarrouselDerecha"/>
             </Grid>
         </Border>
     </Grid>
