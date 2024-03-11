@@ -82,7 +82,7 @@ const perfil2: Perfil = {
     Descripcion: "",
     Estado: "Ausente",
     Region: 'Andorra',
-    JuegosAdquiridos: [juego2, juego1],
+    JuegosAdquiridos: [juego2, juego1, juego2, juego1, juego2, juego1, juego2, juego1, juego2, juego1],
     ImagenB64: ""
 }
 

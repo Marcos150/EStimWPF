@@ -7,6 +7,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace EStimWPF.BibliotecaComponent
@@ -56,13 +57,9 @@ namespace EStimWPF.BibliotecaComponent
             Debug.WriteLine(selectedJuego.GetType().Name);
         }
 
-        private void NuevaVentana(object sender, KeyEventArgs e)
+        private void PassScroll(object sender, MouseWheelEventArgs e)
         {
-            if(e.Key == Key.Space)
-            {
-               
-            }
-                
+            Debug.WriteLine("hola");
         }
     }
 }
