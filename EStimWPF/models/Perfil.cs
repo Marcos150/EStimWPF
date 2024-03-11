@@ -1,6 +1,6 @@
 ﻿namespace EStimWPF.models
 {
-    class Perfil
+    public class Perfil
     {
         private string id;
         private string nombreUsuario;
@@ -34,7 +34,8 @@
         internal Estado Estado { get => estado; set => estado = value; }
         internal List<Juego> JuegosAdquiridos { get => juegosAdquiridos; set => juegosAdquiridos = value; }
     }
-    enum Estado
+
+    public enum Estado
     {
         Desconectado,
         Conectado,

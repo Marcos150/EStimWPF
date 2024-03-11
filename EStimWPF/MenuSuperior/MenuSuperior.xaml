@@ -37,13 +37,13 @@
             <Button Content="{Binding LogoWeb}"/>
         </Border>
         <Border Padding="2" Margin="5" Height="60" Width="115">
-            <Button Content="{Binding Elemento1}"/>
+            <Button Content="{Binding Elemento1}" Click="Catalogo_Click"/>
         </Border>
         <Border Padding="2" Margin="5" Height="60" Width="115">
-            <Button Content="{Binding Elemento2}"/>
+            <Button Content="{Binding Elemento2}" Click="Biblioteca_Click"/>
         </Border>
         <Border Padding="2" Margin="5" Height="60" Width="115">
-            <Button Content="{Binding Elemento3}"/>
+            <Button Content="{Binding Elemento3}" Click="Perfil_Click"/>
         </Border>
         <Border Padding="2" Margin="5" Height="60" Width="115">
             <Button Content="{Binding Elemento4}"/>

@@ -16,7 +16,7 @@ namespace EStimWPF
         {
             //Lista de todas las ventanas creadas. Agregad las que vayais creando aqui para que se abran al darle al boton
             List<Window> windows = new List<Window>
-            {new Destacados(), 
+            {
             new ProfileWindow()};
             foreach(Window window in windows) 
             {
