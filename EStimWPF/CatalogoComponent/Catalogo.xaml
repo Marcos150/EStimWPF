@@ -1,0 +1,66 @@
+﻿<Page
+      x:Class="EStimWPF.CatalogoComponent.Catalogo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EStimWPF.CatalogoComponent"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Catalogo">
+    <Grid>
+        <ListView Name="listaJuegos" SelectionChanged="GoToGamePage">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}" BasedOn="{StaticResource ItemAnimation}" />
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border  BorderBrush="#01323e" BorderThickness="2" Name="border" Width="750">
+                        <Border.Effect>
+                            <DropShadowEffect x:Name="shadow" BlurRadius="0" ShadowDepth="0"/>
+                        </Border.Effect>
+                        <WrapPanel Background="#004556" Name="wrapJuego" Margin="-1,-1,-1, -1" Cursor="Hand" >
+                            <WrapPanel.Triggers>
+                                <EventTrigger RoutedEvent="WrapPanel.MouseEnter">
+                                    <BeginStoryboard Storyboard="{StaticResource Focused}"/>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="WrapPanel.MouseLeave">
+                                    <BeginStoryboard Storyboard="{StaticResource NotFocused}"/>
+                                </EventTrigger>
+                            </WrapPanel.Triggers>
+                            <Grid Cursor="Hand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="60" />
+                                    <RowDefinition Height="60" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="500" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding PortadaSource}"  Width ="100" Height="120" Stretch="Fill" Grid.Column="0" Grid.RowSpan="2"/>
+                                <TextBlock Text="{Binding Nombre}" Margin="20,10,0,0" Foreground="White" FontSize="18"  Grid.Column="1" Grid.Row="0"/>
+                                <ListView Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Generos}" IsEnabled="False">
+                                    <ListView.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Orientation="Horizontal"></StackPanel>
+                                        </ItemsPanelTemplate>
+                                    </ListView.ItemsPanel>
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <WrapPanel Background="Gray" Height="18">
+                                                <TextBlock Foreground="White" Text="{Binding}" Padding="1, 1, 1, 1"/>
+                                            </WrapPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                                <TextBlock Text="{Binding Precio, StringFormat={}{0}€}" Margin="50, 40, 0, 0" Foreground="White" FontSize="20"  Grid.Column="2" Grid.RowSpan="2"/>
+                            </Grid>
+                        </WrapPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

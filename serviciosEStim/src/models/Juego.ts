@@ -8,4 +8,8 @@ export interface Juego {
     Editor?: string;
     Generos?: string[];
     PortadaB64?: string;
+    Img1: string;
+    Img2: string;
+    Img3: string;
+    Img4: string;
 }

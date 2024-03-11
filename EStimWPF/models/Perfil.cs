@@ -1,19 +1,22 @@
-﻿namespace EStimWPF.models
+﻿using System.Collections.ObjectModel;
+
+namespace EStimWPF.models
 {
-    class Perfil
+    public class Perfil
     {
         private string id;
         private string nombreUsuario;
         private string contrasenya;
-        private string descripcion;
-        private Estado estado;
+        private string? descripcion;
+        private string estado;
         private string region;
-        private List<Juego> juegosAdquiridos;
-        private string imagenB64;
+        private ObservableCollection<Juego> juegosAdquiridos;
+        private string? imagenB64;
 
+        public Perfil() { }
         public Perfil(string id, string nombreUsuario, string contrasenya
-            , string descripcion, Estado estado, string region, 
-            List<Juego> juegosAdquiridos, string imagenB64)
+            , string descripcion, string estado, string region, 
+            ObservableCollection<Juego> juegosAdquiridos, string imagenB64)
         {
             this.id = id;
             this.nombreUsuario = nombreUsuario;
@@ -31,13 +34,7 @@
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public string Region { get => region; set => region = value; }
         public string ImagenB64 { get => imagenB64; set => imagenB64 = value; }
-        internal Estado Estado { get => estado; set => estado = value; }
-        internal List<Juego> JuegosAdquiridos { get => juegosAdquiridos; set => juegosAdquiridos = value; }
-    }
-    enum Estado
-    {
-        Desconectado,
-        Conectado,
-        Ausente
+        public string Estado { get => estado; set => estado = value; }
+        public ObservableCollection<Juego> JuegosAdquiridos { get => juegosAdquiridos; set => juegosAdquiridos = value; }
     }
 }

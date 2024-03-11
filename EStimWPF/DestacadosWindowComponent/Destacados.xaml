@@ -1,22 +1,33 @@
-﻿<UserControl x:Class="EStimWPF.UserControl1"
+<UserControl x:Class="EStimWPF.Destacados"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:EStimWPF"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="750">
+    
+    <UserControl.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="Background" Value="#171d25"/>
+        </Style>
+        
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="#dcdedf"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="Verdana" />
+        </Style>
+    </UserControl.Resources>
 
     <Grid>
-        <Image x:Name="imgPpal" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="472" Margin="0,-6,0,0"/>
-        <Label x:Name="nombreJuego" Content="{Binding NombreJuego}" HorizontalAlignment="Left" Margin="584,30,0,0" VerticalAlignment="Top" Width="100"/>
-        <Label x:Name="infoJuego" Content="{Binding InfoJuego}" HorizontalAlignment="Left" Margin="584,235,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="portada" Source="{Binding PortadaB64}" MouseLeftButtonDown="Game_Click" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="472" Margin="0,-6,0,0"/>
+        <Label x:Name="nombreJuego" Content="{Binding Nombre}" HorizontalAlignment="Left" Margin="584,30,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="infoJuego" Content="{Binding Descripcion}" HorizontalAlignment="Left" Margin="584,235,0,0" VerticalAlignment="Top" Width="100"/>
 
         <Grid Margin="540,55,10,65">
-            <Image x:Name="img1" HorizontalAlignment="Left" Height="59" Margin="10,10,0,0" VerticalAlignment="Top" Width="81"/>
-            <Image x:Name="img2" HorizontalAlignment="Left" Height="59" Margin="100,10,0,0" VerticalAlignment="Top" Width="81"/>
-            <Image x:Name="img3" HorizontalAlignment="Left" Height="59" Margin="10,82,0,0" VerticalAlignment="Top" Width="81"/>
-            <Image x:Name="img4" HorizontalAlignment="Left" Height="59" Margin="100,82,0,0" VerticalAlignment="Top" Width="81"/>
+            <Image x:Name="img1" Source="{Binding Img1}" HorizontalAlignment="Left" Height="59" Margin="10,10,0,0" VerticalAlignment="Top" Width="81"/>
+            <Image x:Name="img2" Source="{Binding Img2}" HorizontalAlignment="Left" Height="59" Margin="100,10,0,0" VerticalAlignment="Top" Width="81"/>
+            <Image x:Name="img3" Source="{Binding Img3}" HorizontalAlignment="Left" Height="59" Margin="10,82,0,0" VerticalAlignment="Top" Width="81"/>
+            <Image x:Name="img4" Source="{Binding Img4}" HorizontalAlignment="Left" Height="59" Margin="100,82,0,0" VerticalAlignment="Top" Width="81"/>
         </Grid>
 
     </Grid>
