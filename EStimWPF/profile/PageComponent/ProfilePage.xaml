@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EStimWPF"
         mc:Ignorable="d"
-        Title="ProfileWindow" Height="450" Width="800"
+        Title="ProfileWindow"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
-    <Grid Background="#304A61">
+    <Grid Background="#304A61" HorizontalAlignment="Center">
         <Label Padding="5" Background="#85638a" BorderBrush="Black" BorderThickness="2" Content="{Binding Region, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="#dcdedf" HorizontalAlignment="Left" Margin="184,139,0,0" VerticalAlignment="Top" Width="403" Height="41"/>
         <Image x:Name="profilePic" HorizontalAlignment="Left" Height="100" Margin="46,34,0,0" VerticalAlignment="Top" Width="100" />
         <ListView x:Name="gameList"  Margin="46,225,184,0" d:ItemsSource="{d:SampleData ItemCount=5}">
@@ -15,10 +15,10 @@
                 <DataTemplate>
                     <Border  BorderBrush="Black" BorderThickness="3">
                         <WrapPanel Background="White">
-                            <Image Source="{Binding Img, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Cursor="Hand" Width="40" Height="20" ></Image>
-                            <TextBlock Text="{Binding Nombre}" FontWeight="Bold" Padding="10" />
-                            <TextBlock Text="{Binding Desarrollador}" FontWeight="SemiBold" Padding="10" />
-                            <TextBlock Text="{Binding FechaLanzamiento}" FontWeight="Light" FontStyle="Italic" Padding="10" />
+                            <Image Source="{Binding Img, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Cursor="Hand" Width="100" Height="150" ></Image>
+                            <TextBlock Text="{Binding Nombre}" FontWeight="Bold" Padding="10" VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding Desarrollador}" FontWeight="SemiBold" Padding="10" VerticalAlignment="Center" />
+                            <TextBlock Text="{Binding FechaLanzamiento}" FontWeight="Light" FontStyle="Italic" Padding="10" VerticalAlignment="Center"/>
                         </WrapPanel>
                     </Border>
                 </DataTemplate>

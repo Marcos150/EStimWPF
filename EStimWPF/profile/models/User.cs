@@ -1,4 +1,5 @@
 ﻿using EStimWPF.models;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text.Json.Serialization;
 using System.Windows.Media.Imaging;
@@ -13,7 +14,7 @@ namespace EStimWPF.ProfilePageComponent.models
         private string descripcion ;
         private string estado ;
         private string region;
-        private List<Juego> juegosAdquiridos;
+        private ObservableCollection<Juego> juegosAdquiridos;
         private string imagenB64;
         
         public User()
@@ -22,7 +23,7 @@ namespace EStimWPF.ProfilePageComponent.models
         }
         public User(string id, string nombreUsuario, string contrasenya
             , string descripcion, string estado, string region,
-            List<Juego> juegosAdquiridos, string imagenB64)
+            ObservableCollection<Juego> juegosAdquiridos, string imagenB64)
         {
             this.id = id;
             this.nombreUsuario = nombreUsuario;
@@ -50,7 +51,7 @@ namespace EStimWPF.ProfilePageComponent.models
         public string Region { get => region; set { region = value; RaisedPropertyChanged("Region"); } }
         public string ImagenB64 { get => imagenB64; set{imagenB64 = value; RaisedPropertyChanged("ImagenB64");} }
         public string Estado { get => estado; set {estado = value; RaisedPropertyChanged("Estado");} }
-        public List<Juego> JuegosAdquiridos { get => juegosAdquiridos; set => juegosAdquiridos = value; }
+        public ObservableCollection<Juego> JuegosAdquiridos { get => juegosAdquiridos; set => juegosAdquiridos = value; }
         public BitmapImage PortadaSource { get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;

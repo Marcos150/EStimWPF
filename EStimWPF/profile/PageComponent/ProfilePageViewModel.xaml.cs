@@ -25,6 +25,7 @@ namespace EStimWPF
     /// </summary>
     public partial class ProfilePageViewModel
     {
+        public static bool Completed = false;
         public User usuario;
         UserService service = new UserService("perfiles");
         internal ProfilePageViewModel() 
@@ -35,16 +36,24 @@ namespace EStimWPF
 
         private async Task FillData()
         {
-            User[] users = await service.GetUsers();
-
+            //User[] users = await service.GetUsers();
+            while (LoginPageViewModel.user == null)
+            {
+                Thread.Sleep(200);
+            }
             Application.Current.Dispatcher.Invoke(() =>
             {
-                this.usuario = users[0];
+                this.usuario = LoginPageViewModel.user;
                 BitmapImage bi = ImageGenerator.GenerateImage(this.usuario.ImagenB64);
                 DataContext = this.usuario;
                 this.gameList.ItemsSource = this.usuario.JuegosAdquiridos;
+                foreach(Juego juego in usuario.JuegosAdquiridos)
+                {
+                    juego.Img = ImageGenerator.GenerateImage(juego.PortadaB64);
+                }
                 this.profilePic.Source = bi;
             });
+            Completed = true;
         }
     }
 }

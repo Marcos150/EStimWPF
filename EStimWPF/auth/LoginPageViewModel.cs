@@ -1,5 +1,4 @@
-﻿using EStimWPF.auth.validators;
-using EStimWPF.models;
+﻿using EStimWPF.models;
 using EStimWPF.profile.services;
 using EStimWPF.ProfilePageComponent.models;
 using System;

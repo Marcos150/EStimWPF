@@ -6,10 +6,9 @@
       xmlns:local="clr-namespace:EStimWPF.auth"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" x:Class="EStimWPF.auth.LoginPageViewModel"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
       Title="LoginPage">
 
-    <Grid Background="#304A61">
+    <Grid Background="#304A61" HorizontalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition Height="31*"/>
             <RowDefinition Height="119*"/>

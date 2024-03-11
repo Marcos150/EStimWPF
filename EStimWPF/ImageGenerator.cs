@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 
 namespace EStimWPF
-{
+{   
     internal class ImageGenerator
     {
         public static BitmapImage GenerateImage(string source)
