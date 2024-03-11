@@ -1,4 +1,5 @@
 ﻿using EStimWPF.auth.validators;
+using EStimWPF.models;
 using EStimWPF.profile.services;
 using EStimWPF.ProfilePageComponent.models;
 using System;
@@ -26,10 +27,11 @@ namespace EStimWPF.auth
     {
         UserService service = new UserService("perfiles");
         event EventHandler<LoginPageViewModel> OnLoginPage;
-        Page destination;
-        public LoginPageViewModel()
+        Page destination = new Destacados();
+        public LoginPageViewModel(Page destination)
         {
             InitializeComponent();
+            this.destination = destination;
             this.btn_accept.IsEnabled = true;
         }
         private async void LogIn(object sender, EventArgs e)

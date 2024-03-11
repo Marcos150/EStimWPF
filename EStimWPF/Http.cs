@@ -20,13 +20,13 @@ namespace EStimWPF
         }
         public Http(string server)
         {
-            this.http=new HttpClient();
+            this.http = new HttpClient();
             this.server = server;
         }
-        public async Task<T[]?> Get(string serviceURL)
+        public async Task<T> Get(string serviceURL)
         {
-            string cls=await http.GetStringAsync(server+serviceURL);
-            return JsonSerializer.Deserialize<T[]?>(cls);
+            string cls = await http.GetStringAsync(server + serviceURL);
+            return JsonSerializer.Deserialize<T>(cls);
         }
     }
 }

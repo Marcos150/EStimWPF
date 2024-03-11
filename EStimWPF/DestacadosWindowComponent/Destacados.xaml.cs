@@ -1,12 +1,13 @@
 ﻿using EStimWPF.models;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace EStimWPF
 {
     /// <summary>
     /// Lógica de interacción para Destacados.xaml
     /// </summary>
-    public partial class Destacados : Window
+    public partial class Destacados : Page
     {
         public Destacados()
         {

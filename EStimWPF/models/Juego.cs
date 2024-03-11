@@ -1,4 +1,7 @@
-﻿namespace EStimWPF.models
+﻿using System.IO;
+using System.Windows.Media.Imaging;
+
+namespace EStimWPF.models
 {
     public class Juego
     {
@@ -11,6 +14,7 @@
         private string editor;
         private List<string> generos;
         private string portadaB64;
+        private BitmapImage? img=null;
 
         public Juego()
         {
@@ -27,6 +31,12 @@
             this.editor = editor;
             this.generos = generos;
             this.portadaB64 = portadaB64;
+            byte[] data = Convert.FromBase64String(this.portadaB64);
+            BitmapImage bi = new BitmapImage();
+            bi.BeginInit();
+            bi.StreamSource = new MemoryStream(data);
+            bi.EndInit();
+            this.Img = bi;
         }
 
         public string Id { get => id; set => id = value; }
@@ -38,5 +48,6 @@
         public string Editor { get => editor; set => editor = value; }
         public List<string> Generos { get => generos; set => generos = value; }
         public string PortadaB64 { get => portadaB64; set => portadaB64 = value; }
+        public BitmapImage? Img { get => img; set => img = value; }
     }
 }
