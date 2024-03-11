@@ -1,6 +1,8 @@
 ﻿using System.Windows;
 using EStimWPF.models;
 using System.Windows.Controls;
+using EStimWPF.CatalogoComponent;
+using System.Windows.Navigation;
 
 namespace EStimWPF.MenuSuperior
 {
@@ -19,14 +21,12 @@ namespace EStimWPF.MenuSuperior
         
         private void Catalogo_Click(object sender, RoutedEventArgs e)
         {
-            //Busqueda busqueda = new Busqueda();
-            //busqueda.Show();
+            MainPage.CatalogoNavigation.Visibility = Visibility.Visible;
         }
         
         private void Biblioteca_Click(object sender, RoutedEventArgs e)
         {
-            //Biblioteca biblioteca = new Biblioteca();
-            //biblioteca.Show();
+            NavigationService.GetNavigationService(this).Navigate(new Uri("BibliotecaComponent/Biblioteca.xaml", UriKind.Relative));
         }
     }
 }

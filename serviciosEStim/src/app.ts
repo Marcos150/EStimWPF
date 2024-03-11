@@ -79,9 +79,11 @@ const perfil2: Perfil = {
     Id: '2',
     NombreUsuario: 'Pepito420',
     Contrasenya: 'Hola me llamo Pepito',
+    Descripcion: "",
     Estado: "Ausente",
     Region: 'Andorra',
-    JuegosAdquiridos: [juego2, juego1]
+    JuegosAdquiridos: [juego2, juego1],
+    ImagenB64: ""
 }
 
 let app = express();
@@ -105,7 +107,7 @@ app.get("/perfiles", (_req, res) => {
 });
 
 app.get("/perfiles/:id", (_req, res) => {
-    res.send([perfil2])
+    res.send(perfil2)
 });
 
 //Puesta en marcha

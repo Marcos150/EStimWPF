@@ -25,26 +25,21 @@ namespace EStimWPF.BibliotecaComponent
         {   
             InitializeComponent();
             http = new Http<Perfil>();
-            if (MainWindow.perfil == null)
-                Task.Run(() => GetJuegos());
-            else
-                listaJuegos.ItemsSource = MainWindow.perfil.JuegosAdquiridos;
-
+            Task.Run(() => GetJuegos());
         }
 
         private async Task GetJuegos()
         {
             {   
-                MainWindow.perfil = new Perfil();
-                MainWindow.perfil = await http.Get(URL);
+                perfil = await http.Get(URL);
                 Application.Current.Dispatcher.Invoke(() =>
                 {
-                    foreach (Juego juego in MainWindow.perfil.JuegosAdquiridos)
+                    foreach (Juego juego in perfil.JuegosAdquiridos)
                     {
                         juego.PortadaSource = ImageGenerator.GenerateImage(juego.PortadaB64);
                         juego.PortadaB64 = "";
                     }
-                    listaJuegos.ItemsSource = MainWindow.perfil.JuegosAdquiridos;
+                    listaJuegos.ItemsSource = perfil.JuegosAdquiridos;
                 });
             }
         }
@@ -65,7 +60,7 @@ namespace EStimWPF.BibliotecaComponent
         {
             if(e.Key == Key.Space)
             {
-                MainWindow.navigation.Navigate(new Busqueda());
+               
             }
                 
         }

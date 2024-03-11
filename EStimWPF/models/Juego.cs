@@ -49,7 +49,7 @@ namespace EStimWPF.models
         public List<string> Generos { get => generos; set => generos = value; }
         public string PortadaB64 { get => portadaB64; set => portadaB64 = value; }
 
-        public BitmapImage PortadaSource;
+        public BitmapImage PortadaSource { get; set; }
         public string Img1 { get => img1; set => img1 = value; }
         public string Img2 { get => img2; set => img2 = value; }
         public string Img3 { get => img3; set => img3 = value; }

@@ -6,19 +6,21 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using EStimWPF.BibliotecaComponent;
+using System.Diagnostics;
 
 namespace EStimWPF.CatalogoComponent
 {
     /// <summary>
     /// Lógica de interacción para Busqueda.xaml
     /// </summary>
-    public partial class Busqueda : Page
+    public partial class Catalogo : Page
     {
         private const string URL = "juegos";
         private Http<ObservableCollection<Juego>> http;
-        public Busqueda()
+        public Catalogo()
         {
             InitializeComponent();
+            Debug.WriteLine("catalogo");
             http = new Http<ObservableCollection<Juego>>();
             Task.Run(() => GetJuegos());
         }

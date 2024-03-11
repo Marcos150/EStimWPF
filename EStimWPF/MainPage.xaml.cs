@@ -7,10 +7,13 @@ namespace EStimWPF
 {
     public partial class MainPage: Window
     {
+        public static Frame CatalogoNavigation;
         public MainPage()
         {
             InitializeComponent();
-            
+
+            CatalogoNavigation = Catalogo;
+
             var destacadosControl1 = new Destacados();
             var destacadosControl2 = new Destacados();
             var destacadosControl3 = new Destacados();
