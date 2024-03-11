@@ -9,15 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="testing\tekken8.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="WPF-UI" Version="3.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="testing\tekken8.jpg" />
     <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.0" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.77" />
     <PackageReference Include="Syncfusion.Shared.WPF" Version="24.2.9" />

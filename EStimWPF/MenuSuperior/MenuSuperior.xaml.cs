@@ -21,12 +21,12 @@ namespace EStimWPF.MenuSuperior
         
         private void Catalogo_Click(object sender, RoutedEventArgs e)
         {
-            MainPage.CatalogoNavigation.Visibility = Visibility.Visible;
+            Navigator.Navigate(MainPage.Frames, "Catalogo");
         }
         
         private void Biblioteca_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GetNavigationService(this).Navigate(new Uri("BibliotecaComponent/Biblioteca.xaml", UriKind.Relative));
+            Navigator.Navigate(MainPage.Frames, "Biblioteca");
         }
     }
 }

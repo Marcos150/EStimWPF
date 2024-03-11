@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using EStimWPF.models;
 
 namespace EStimWPF
@@ -8,11 +9,14 @@ namespace EStimWPF
     public partial class MainPage: Window
     {
         public static Frame CatalogoNavigation;
+        public static List<Frame> Frames;
         public MainPage()
         {
-            InitializeComponent();
+            InitializeComponent();  
 
             CatalogoNavigation = Catalogo;
+
+            Frames = GetAllFrames();
 
             var destacadosControl1 = new Destacados();
             var destacadosControl2 = new Destacados();
@@ -39,17 +43,21 @@ namespace EStimWPF
             {
                 JuegosDestacadosLocal.Add(juego);
             }
-
-            Console.WriteLine("JuegosDestacados: " + JuegosDestacadosLocal.Count);
-            Console.WriteLine();
-            Console.WriteLine("JuegosDestacados: " + JuegosDestacadosLocal[0].Nombre);
-            Console.WriteLine("JuegosDestacados: " + JuegosDestacadosLocal[1].Nombre);
-            Console.WriteLine("JuegosDestacados: " + JuegosDestacadosLocal[2].Nombre);
-            Console.WriteLine("JuegosDestacados: " + JuegosDestacadosLocal[3].Nombre);
-            Console.WriteLine();
-            Console.WriteLine();
             
             frame.Content = destacadosControl;
+        }
+
+        private List<Frame> GetAllFrames()
+        {   
+            List<Frame> frames = new List<Frame>();
+            int quantity = VisualTreeHelper.GetChildrenCount(destacados);
+
+            for(int i = 0; i < quantity; i++)
+            {
+                frames.Add(VisualTreeHelper.GetChild(destacados, i) as Frame);
+            }
+
+            return frames;
         }
     }
 }
