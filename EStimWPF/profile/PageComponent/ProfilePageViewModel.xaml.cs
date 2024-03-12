@@ -28,7 +28,7 @@ namespace EStimWPF
         public static bool Completed = false;
         public User usuario;
         UserService service = new UserService("perfiles");
-        internal ProfilePageViewModel() 
+        public ProfilePageViewModel() 
         {   
             InitializeComponent();
             Task.Run(() => FillData());

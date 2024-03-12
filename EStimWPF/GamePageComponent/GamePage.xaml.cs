@@ -1,4 +1,5 @@
-﻿using EStimWPF.models;
+﻿using EStimWPF.auth;
+using EStimWPF.models;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
@@ -73,6 +74,12 @@ namespace EStimWPF
             // Cambia a la siguiente imagen
             currentIndex = (currentIndex + 1) % 4;
             this.banner.Source = imagePaths[currentIndex];
+        }
+
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            juego.Img = juego.PortadaSource;
+            LoginPageViewModel.user.JuegosAdquiridos.Add(juego);
         }
     }
 }

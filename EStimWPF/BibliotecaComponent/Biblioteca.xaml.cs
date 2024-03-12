@@ -41,7 +41,6 @@ namespace EStimWPF.BibliotecaComponent
                 foreach (Juego juego in LoginPageViewModel.user.JuegosAdquiridos)
                 {
                     juego.PortadaSource = ImageGenerator.GenerateImage(juego.PortadaB64);
-                    juego.PortadaB64 = "";
                 }
                 listaJuegos.ItemsSource = LoginPageViewModel.user.JuegosAdquiridos;
             });
