@@ -15,16 +15,16 @@ namespace EStimWPF
         private List<BitmapImage> imagePaths;
 
         //Constructor vacio para testing
-        public GamePageViewModel()
+        /*public GamePageViewModel()
         {
             InitializeComponent();
             this.DataContext = juego;
-        }
+        }*/
 
-        public GamePageViewModel(Juego juego)
+        public GamePageViewModel()
         {
             InitializeComponent();
-            this.SetJuego(juego);
+            this.SetJuego(CatalogoComponent.Catalogo.juego);
         }
 
         public void SetJuego(Juego juego)

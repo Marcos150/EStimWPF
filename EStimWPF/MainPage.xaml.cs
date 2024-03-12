@@ -2,19 +2,18 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using EStimWPF.auth;
 using EStimWPF.models;
+using EStimWPF.ProfilePageComponent.models;
 
 namespace EStimWPF
 {
     public partial class MainPage: Window
     {
-        public static Frame CatalogoNavigation;
         public static List<Frame> Frames;
         public MainPage()
         {
             InitializeComponent();  
-
-            CatalogoNavigation = Catalogo;
 
             Frames = GetAllFrames();
 
@@ -22,11 +21,12 @@ namespace EStimWPF
             var destacadosControl2 = new Destacados();
             var destacadosControl3 = new Destacados();
             var destacadosControl4 = new Destacados();
-            
+
             CargarJuegosDestacados(frame1, destacadosControl1);
             CargarJuegosDestacados(frame2, destacadosControl2);
             CargarJuegosDestacados(frame3, destacadosControl3);
             CargarJuegosDestacados(frame4, destacadosControl4);
+
         }
         
         private void CargarJuegosDestacados(Frame frame, Destacados destacadosControl)

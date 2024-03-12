@@ -4,9 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
-             d:DesignHeight="80" d:DesignWidth="1920"
              >
-    
+
     <UserControl.Resources>
         <Style TargetType="Button">
             <Setter Property="Background" Value="#171d25"/>
@@ -23,7 +22,7 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            
+
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#27323C"/>
@@ -33,22 +32,21 @@
     </UserControl.Resources>
     <StackPanel HorizontalAlignment="Stretch" Background="#171d25">
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Background="#171d25">
-            <Border Padding="2" Margin="0, 0, 0, 0" Height="60" Width="225">
-                <Button Content="{Binding LogoWeb}"/>
-            </Border>
-            <Border Padding="2" Margin="0" Height="60" Width="115">
-                <Button Content="{Binding Elemento1}" Click="Catalogo_Click"/>
-            </Border>
-            <Border Padding="2" Margin="0" Height="60" Width="115">
-                <Button Content="{Binding Elemento2}" Click="Biblioteca_Click"/>
-            </Border>
-            <Border Padding="2" Margin="0" Height="60" Width="115">
-                <Button Content="{Binding Elemento3}" Click="Perfil_Click"/>
-            </Border>
-            <Border Padding="2" Margin="0" Height="60" Width="115">
-                <Button Content="{Binding Elemento4}"/>
-            </Border>
-
+            <Border Padding="2" Margin="0, 0, 0, 0" Height="60" Width="80">
+            <Image x:Name="LogoImage" Height="60" Width="60" Margin="5"/>        
+        </Border>
+        <Border Padding="2" Margin="5" Height="60" Width="115">
+            <Button Content="{Binding Elemento1}" Click="Catalogo_Click"/>
+        </Border>
+        <Border Padding="2" Margin="5" Height="60" Width="115">
+            <Button Content="{Binding Elemento2}" Click="Biblioteca_Click"/>
+        </Border>
+        <Border Padding="2" Margin="5" Height="60" Width="115">
+            <Button Content="{Binding Elemento3}" Click="Perfil_Click"/>
+        </Border>
+        <Border Padding="2" Margin="5" Height="60" Width="115">
+            <Button Content="{Binding Elemento4}"/>
+        </Border>
         </StackPanel>
     </StackPanel>
 </UserControl>

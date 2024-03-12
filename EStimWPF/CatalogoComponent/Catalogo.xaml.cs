@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using EStimWPF.BibliotecaComponent;
 using System.Diagnostics;
+using System.Windows.Documents;
 
 namespace EStimWPF.CatalogoComponent
 {
@@ -17,6 +18,7 @@ namespace EStimWPF.CatalogoComponent
     {
         private const string URL = "juegos";
         private Http<ObservableCollection<Juego>> http;
+        public static Juego juego;
         public Catalogo()
         {
             InitializeComponent();
@@ -33,7 +35,6 @@ namespace EStimWPF.CatalogoComponent
                 foreach (Juego juego in juegos)
                 {
                     juego.PortadaSource = ImageGenerator.GenerateImage(juego.PortadaB64);
-                    juego.PortadaB64 = "";
                 }
                 listaJuegos.ItemsSource = juegos;
             });
@@ -41,14 +42,11 @@ namespace EStimWPF.CatalogoComponent
 
         private void GoToGamePage(object sender, SelectionChangedEventArgs e)
         {
-        }
-
-        private void NuevaVentana(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Space)
-            {
-                MainWindow.navigation.Navigate(new Biblioteca());
-            }
+            juego = listaJuegos.SelectedItem as Juego;
+            /*NavigationService.Navigate(new GamePageViewModel(juego));*/
+            Frame frame = MainPage.Frames.Find((f) => f.Name == "GamePage");
+            frame.Source = new Uri("GamePageComponent/GamePage.xaml", UriKind.Relative);
+            Navigator.Navigate(MainPage.Frames, "GamePage");
         }
     }
 }

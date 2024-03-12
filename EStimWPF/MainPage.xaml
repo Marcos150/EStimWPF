@@ -28,15 +28,23 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Frame Grid.Row="0" Name="menu" Source="MenuSuperior/menuSuperior.xaml"></Frame>
-            <Frame Grid.Row="1" Name="nav" Source="NavBarComponent/navBar.xaml" Margin="0, 10" ></Frame>
-            <Frame Name="Catalogo" Grid.Row="2" Source="CatalogoComponent/Catalogo.xaml" Visibility="Collapsed"></Frame>
-            <Frame Name="Biblioteca" Grid.Row="3" Source="BibliotecaComponent/Biblioteca.xaml" Visibility="Collapsed"></Frame>
-            <Frame Grid.Row="4" Name="frame1" Source="DestacadosWindowComponent/Destacados.xaml" Margin="0, 30" HorizontalAlignment="Center"></Frame>
-            <Frame Grid.Row="5" Name="frame2" Source="DestacadosWindowComponent/Destacados.xaml" Margin="0, 30" HorizontalAlignment="Center"></Frame>
-            <Frame Grid.Row="6" Name="frame3" Source="DestacadosWindowComponent/Destacados.xaml" Margin="0, 30" HorizontalAlignment="Center"></Frame>
-            <Frame Grid.Row="7" Name="frame4" Source="DestacadosWindowComponent/Destacados.xaml" Margin="0, 30" HorizontalAlignment="Center"></Frame>
+            <Frame Grid.Row="0" Name="menu" Source="MenuSuperior/menuSuperior.xaml" Visibility="Collapsed"></Frame>
+            <Frame Grid.Row="1" Name="nav" Source="NavBarComponent/navBar.xaml" Margin="0, 10" Visibility="Collapsed" ></Frame>
+            <Frame Grid.Row="2" Name="login" Source="auth/LoginPage.xaml"></Frame>
+            <Frame Grid.Row="3" x:Name="perfil" Source="profile/PageComponent/ProfilePage.xaml" Visibility="Collapsed"></Frame>
+            <Frame Grid.Row="4" Name="Catalogo" Source="CatalogoComponent/Catalogo.xaml" Visibility="Collapsed"></Frame>
+            <Frame Grid.Row="5" Name="GamePage" Visibility="Collapsed"></Frame>
+            <Frame Grid.Row="6" Name="Biblioteca" Source="BibliotecaComponent/Biblioteca.xaml" Visibility="Collapsed"></Frame>
+            <Frame Grid.Row="7" Name="frame1" Source="DestacadosWindowComponent/Destacados.xaml" Margin="0, 30" HorizontalAlignment="Center" Visibility="Collapsed"></Frame>
+            <Frame Grid.Row="8" Name="frame2" Source="DestacadosWindowComponent/Destacados.xaml" Margin="0, 30" HorizontalAlignment="Center" Visibility="Collapsed"></Frame>
+            <Frame Grid.Row="9" Name="frame3" Source="DestacadosWindowComponent/Destacados.xaml" Margin="0, 30" HorizontalAlignment="Center" Visibility="Collapsed"></Frame>
+            <Frame Grid.Row="10" Name="frame4" Source="DestacadosWindowComponent/Destacados.xaml" Margin="0, 30" HorizontalAlignment="Center" Visibility="Collapsed"></Frame>
+            <!--<Frame Grid.Row="2" Name="Catalogo" Source="CatalogoComponent/Catalogo.xaml" Visibility="Collapsed" Margin="0, 10" ></Frame>-->
         </Grid>
     </ScrollViewer>
 </Window>

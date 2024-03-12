@@ -1,0 +1,40 @@
+﻿<Page x:Class="EStimWPF.ProfilePageViewModel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EStimWPF"
+        mc:Ignorable="d"
+        Title="ProfileWindow"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
+    <Grid Background="#304A61" HorizontalAlignment="Center">
+        <Label Padding="5" Background="#85638a" BorderBrush="Black" BorderThickness="2" Content="{Binding Region, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="#dcdedf" HorizontalAlignment="Left" Margin="184,139,0,0" VerticalAlignment="Top" Width="403" Height="41"/>
+        <Image x:Name="profilePic" HorizontalAlignment="Left" Height="100" Margin="46,34,0,0" VerticalAlignment="Top" Width="100" />
+        <ListView x:Name="gameList"  Margin="46,225,184,0" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border  BorderBrush="Black" BorderThickness="3">
+                        <WrapPanel Background="White">
+                            <Image Source="{Binding Img, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Cursor="Hand" Width="100" Height="150" ></Image>
+                            <TextBlock Text="{Binding Nombre}" FontWeight="Bold" Padding="10" VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding Desarrollador}" FontWeight="SemiBold" Padding="10" VerticalAlignment="Center" />
+                            <TextBlock Text="{Binding FechaLanzamiento}" FontWeight="Light" FontStyle="Italic" Padding="10" VerticalAlignment="Center"/>
+                        </WrapPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.View>
+
+                <GridView>
+
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label HorizontalContentAlignment="Center" Background="Gray" BorderBrush="Black" BorderThickness="2" Foreground="#dcdedf" x:Name="description" Content="{Binding Estado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="644,18,0,0" VerticalAlignment="Top" Width="127" Height="24"/>
+        <Label Padding="5" Background="#85638a" BorderBrush="Black" BorderThickness="2" Foreground="#dcdedf" Content="{Binding NombreUsuario, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="184,10,0,0" VerticalAlignment="Top" Width="403" Height="40"/>
+        <Label Padding="5" Background="#59425c" BorderBrush="Black" BorderThickness="2" Foreground="#dcdedf" Content="{Binding Descripcion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="184,47,0,0" VerticalAlignment="Top" Width="403" Height="92"/>
+        <Label Background="#f9c9ff" Foreground="Black" BorderBrush="Black" BorderThickness="2" Content="Biblioteca del Jugador" HorizontalAlignment="left" HorizontalContentAlignment="Center" Margin="46,202,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Width="570"/>
+
+    </Grid>
+</Page>

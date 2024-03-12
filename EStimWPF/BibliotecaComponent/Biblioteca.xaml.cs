@@ -1,4 +1,5 @@
-﻿using EStimWPF.CatalogoComponent;
+﻿using EStimWPF.auth;
+using EStimWPF.CatalogoComponent;
 using EStimWPF.models;
 using System;
 using System.Collections.ObjectModel;
@@ -7,6 +8,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace EStimWPF.BibliotecaComponent
@@ -30,39 +32,33 @@ namespace EStimWPF.BibliotecaComponent
 
         private async Task GetJuegos()
         {
-            {   
-                perfil = await http.Get(URL);
-                Application.Current.Dispatcher.Invoke(() =>
-                {
-                    foreach (Juego juego in perfil.JuegosAdquiridos)
-                    {
-                        juego.PortadaSource = ImageGenerator.GenerateImage(juego.PortadaB64);
-                        juego.PortadaB64 = "";
-                    }
-                    listaJuegos.ItemsSource = perfil.JuegosAdquiridos;
-                });
+            while (LoginPageViewModel.user == null && !ProfilePageViewModel.Completed)
+            {
+                Thread.Sleep(200);
             }
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                foreach (Juego juego in LoginPageViewModel.user.JuegosAdquiridos)
+                {
+                    juego.PortadaSource = ImageGenerator.GenerateImage(juego.PortadaB64);
+                    juego.PortadaB64 = "";
+                }
+                listaJuegos.ItemsSource = LoginPageViewModel.user.JuegosAdquiridos;
+            });
         }
 
         private void Eliminar(object sender, RoutedEventArgs e)
         {
-            ObservableCollection<Juego> juegos = listaJuegos.ItemsSource as ObservableCollection<Juego>;
-            juegos.Remove(selectedJuego);
-            Debug.WriteLine(juegos.Count);
+            LoginPageViewModel.user.JuegosAdquiridos.Remove(selectedJuego);
         }
         private void ImageClick(object sender, MouseButtonEventArgs e)
         {
-            selectedJuego = (listaJuegos.ItemsSource as ObservableCollection<Juego>).ToList().Find(j => j.PortadaSource == (sender as Image).Source);
-            Debug.WriteLine(selectedJuego.GetType().Name);
+            selectedJuego = (LoginPageViewModel.user.JuegosAdquiridos).ToList().Find(j => j.PortadaSource == (sender as Image).Source);
         }
 
-        private void NuevaVentana(object sender, KeyEventArgs e)
+        private void PassScroll(object sender, MouseWheelEventArgs e)
         {
-            if(e.Key == Key.Space)
-            {
-               
-            }
-                
+            Debug.WriteLine("hola");
         }
     }
 }
