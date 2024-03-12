@@ -28,6 +28,8 @@ let TLOU_Img2 = fs.readFileSync('./src/images/TLOU_2.txt', 'utf8');
 let TLOU_Img3 = fs.readFileSync('./src/images/TLOU_3.txt', 'utf8');
 let TLOU_Img4 = fs.readFileSync('./src/images/TLOU_4.txt', 'utf8');
 
+let profile = fs.readFileSync('./src/images/profile.txt', 'utf8');
+
 const juego1: Juego = {
     Id: "1",
     Nombre: "Assassins Creed Valhalla",
@@ -98,6 +100,7 @@ const perfil1: Perfil = {
     Contrasenya: 'test',
     Estado: "Conectado",
     Region: 'España',
+    ImagenB64: profile,
     JuegosAdquiridos: [juego1, juego2]
 }
 const perfil2: Perfil = {

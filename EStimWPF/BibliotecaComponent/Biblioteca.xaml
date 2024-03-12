@@ -57,7 +57,7 @@
                                 </EventTrigger>
                             </WrapPanel.Triggers>
                             <Border BorderBrush="#01323e" BorderThickness="3">
-                                <Image Source="{Binding PortadaSource}" Margin="65" Stretch="Fill" MouseRightButtonDown="ImageClick">
+                                <Image Source="{Binding PortadaSource}" Width="150" Height="150" Stretch="Fill" MouseRightButtonDown="ImageClick">
                                     <Image.ContextMenu>
                                         <ContextMenu>
                                             <MenuItem Header="Eliminar" Click="Eliminar">

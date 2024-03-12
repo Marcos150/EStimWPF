@@ -19,15 +19,16 @@ namespace EStimWPF.MenuSuperior
 
             InsertLogoB64();
         }
-        
+
         private void InsertLogoB64()
         {
-            String logoB64 = ReadBase64String("logoenB64.txt");
+            string filePath = Path.Combine("../../..", "MenuSuperior", "logoenB64.txt");
+            String logoB64 = ReadBase64String(filePath);
 
             BitmapImage bi = new BitmapImage();
             bi.BeginInit();
             byte[] bytes = Convert.FromBase64String(logoB64);
-            
+
             bi.StreamSource = new MemoryStream(bytes);
             bi.EndInit();
 
