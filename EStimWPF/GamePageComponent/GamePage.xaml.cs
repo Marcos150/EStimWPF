@@ -1,7 +1,8 @@
-﻿using EStimWPF.models;
-using System.IO;
+﻿using EStimWPF.auth;
+using EStimWPF.models;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using System.Windows.Threading;
 
 namespace EStimWPF
 {
@@ -11,43 +12,74 @@ namespace EStimWPF
     public partial class GamePageViewModel : Page
     {
         private Juego juego;
+        private int currentIndex = 0;
+        private List<BitmapImage> imagePaths;
 
         //Constructor vacio para testing
+        /*public GamePageViewModel()
+        {
+            InitializeComponent();
+            this.DataContext = juego;
+        }*/
+
         public GamePageViewModel()
         {
             InitializeComponent();
-            this.juego = new Juego();
-            juego.Nombre = "Me gusta el queso";
-
-            this.DataContext = juego;
-        }
-
-        public GamePageViewModel(Juego juego)
-        {
-            InitializeComponent();
-            this.SetJuego(juego);
+            this.SetJuego(CatalogoComponent.Catalogo.juego);
         }
 
         public void SetJuego(Juego juego)
         {
             this.juego = juego;
 
-            byte[] binaryData = Convert.FromBase64String(juego.PortadaB64);
-
-            BitmapImage bi = new();
-            bi.BeginInit();
-            bi.StreamSource = new MemoryStream(binaryData);
-            bi.EndInit();
-
+            BitmapImage bi = ImageGenerator.GenerateImage(juego.PortadaB64);
             this.portada.Source = bi;
-            this.banner.Source = bi;
+            imagePaths =
+            [
+                ImageGenerator.GenerateImage(juego.Img1),
+                ImageGenerator.GenerateImage(juego.Img2),
+                ImageGenerator.GenerateImage(juego.Img3),
+                ImageGenerator.GenerateImage(juego.Img4),
+            ];
+            this.banner.Source = imagePaths[0];
+
+            // Temporizador del banner
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(3);
+            timer.Tick += Timer_Tick;
+            timer.Start();
 
             this.DataContext = juego;
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            CarrouselDerecha(null, null);
         }
 
         public void RefrescarVista()
         {
             this.DataContext = juego;
+        }
+
+        private void CarrouselIzquierda(object sender, System.Windows.RoutedEventArgs e)
+        {
+            // Cambia a la anterior imagen
+            currentIndex = (currentIndex + 3) % 4;
+            this.banner.Source = imagePaths[currentIndex];
+        }
+
+        private void CarrouselDerecha(object sender, System.Windows.RoutedEventArgs e)
+        {
+            // Cambia a la siguiente imagen
+            currentIndex = (currentIndex + 1) % 4;
+            this.banner.Source = imagePaths[currentIndex];
+        }
+
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            juego.Img = juego.PortadaSource;
+            LoginPageViewModel.user.JuegosAdquiridos.Add(juego);
         }
     }
 }

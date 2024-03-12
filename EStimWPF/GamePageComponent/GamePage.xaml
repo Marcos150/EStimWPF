@@ -4,22 +4,32 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:EStimWPF"
-      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" 
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignWidth="1920" d:DesignHeight="1080"
       Title="GamePage">
     <Page.Resources>
         <local:ConvertidorMoneda x:Key="ConvertidorMoneda"/>
     </Page.Resources>
 
-    <Grid>
-        <Image x:Name="portada" HorizontalAlignment="Left" Height="228" Margin="20,71,0,0" VerticalAlignment="Top" Width="447"/>
-        <Image x:Name="banner" HorizontalAlignment="Left" Height="112" Margin="530,71,0,0" VerticalAlignment="Top" Width="250"/>
-        <Label x:Name="titulo" Content="{Binding Nombre}" HorizontalAlignment="Left" Margin="20,30,0,0" VerticalAlignment="Top" Width="380"/>
-        <Label x:Name="descripcion" Content="{Binding Descripcion}" HorizontalAlignment="Left" Margin="530,212,0,0" VerticalAlignment="Top" Width="249" Height="101"/>
-        <Label x:Name="fechaLanzamiento" Content="{Binding FechaLanzamiento}" HorizontalAlignment="Left" Margin="530,330,0,0" VerticalAlignment="Top" Width="249"/>
-        <Label x:Name="desarrolladora" Content="{Binding Desarrolladora}" HorizontalAlignment="Left" Margin="530,373,0,0" VerticalAlignment="Top" Width="249"/>
-        <Label x:Name="precio" Content="{Binding Precio, Converter={StaticResource ConvertidorMoneda}}" HorizontalAlignment="Left" Margin="530,420,0,0" VerticalAlignment="Top" Width="249"/>
-
+    <Grid Background="#304a61" Width="Auto">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Image Stretch="Fill" x:Name="portada" HorizontalAlignment="Left" Height="532" Margin="20,71,0,0" VerticalAlignment="Top"/>
+        <ui:TextBlock TextAlignment="Center" FontSize="30" x:Name="titulo" Foreground="#dcdedf" Text="{Binding Nombre}" HorizontalAlignment="Left" Margin="20,31,0,0" VerticalAlignment="Top"/>
+        <Border BorderBrush="Black" BorderThickness="3" Grid.Column="2" Margin="5,0,0,0">
+            <Grid Background="#004556">
+                <Image Stretch="Fill" x:Name="banner" Height="200" VerticalAlignment="Top" Margin="29,10,27,0"/>
+                <ui:TextBlock FontSize="18" x:Name="descripcion" Foreground="#dcdedf" Text="{Binding Descripcion}" Margin="0,215,0,0" VerticalAlignment="Top" TextAlignment="Left" Height="213"/>
+                <ui:TextBlock FontSize="16" x:Name="fechaLanzamiento" Foreground="#dcdedf" Text="{Binding FechaLanzamiento, StringFormat={}Fecha de lanzamiento: {0}}" Margin="0,430,0,0" TextAlignment="Left" VerticalAlignment="Top" Width="465"/>
+                <ui:TextBlock FontSize="16" x:Name="desarrolladora" Foreground="#dcdedf" Text="{Binding Desarrollador}" Margin="0,480,0,0" TextAlignment="Left" VerticalAlignment="Top" Width="465"/>
+                <ui:TextBlock FontSize="22" x:Name="precio" Foreground="#dcdedf" Text="{Binding Precio, Converter={StaticResource ConvertidorMoneda}}" Margin="0,530,0,0" TextAlignment="Left" VerticalAlignment="Top" Width="465"/>
+                <ui:Button Content="Añadir a la biblioteca" Margin="0,650,0,0" VerticalAlignment="Top" Height="86" Width="258" HorizontalAlignment="Center" Click="Button_Click"/>
+                <ui:Button Content="🢀" Margin="28,10,0,0" VerticalAlignment="Top" Height="200" Width="48" HorizontalAlignment="Left" Background="Transparent" Click="CarrouselIzquierda"/>
+                <ui:Button Content="🢂" Margin="0,10,28,0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="200" Width="48" Background="Transparent" Click="CarrouselDerecha"/>
+            </Grid>
+        </Border>
     </Grid>
 </Page>
