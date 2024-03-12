@@ -74,6 +74,10 @@ namespace EStimWPF
                             img2.Source = LoadImageFromBase64(juego.Img2);
                             img3.Source = LoadImageFromBase64(juego.Img3);
                             img4.Source = LoadImageFromBase64(juego.Img4);
+                            nombreJuego.Content = juego.Nombre;
+                            nombreJuego.DataContext = juego;
+                            infoJuego.Content = juego.Descripcion;
+                            infoJuego.DataContext = juego;
                         }
                     });
                 }
